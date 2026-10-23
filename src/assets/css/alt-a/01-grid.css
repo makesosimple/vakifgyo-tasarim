@@ -1,0 +1,135 @@
+/* ==========================================================================
+   VakıfKart — Alternatif A · Izgara katmanı
+
+   Kurumsal site Bootstrap 4 ızgarası kullanıyor. Bootstrap kütüphanesi bu
+   projede yasak; ancak kurumsal bileşenleri BİREBİR kullanabilmek için aynı
+   sınıf sözleşmesinin (.container / .row / .col-*) karşılanması gerekiyor.
+
+   Bu dosya o sözleşmeyi kendi kodumuzla sağlıyor. Bootstrap'ten tek satır
+   kopyalanmamıştır: oradaki 12 kolon × 5 kırılım = 60 ayrı kural yerine,
+   kolon oranı bir custom property (--col-n) üzerinden hesaplanıyor.
+
+   Ölçüler kurumsal siteden ölçülerek alındı:
+     gutter            15px
+     container max     540 / 720 / 960 / 1140
+     kırılımlar        576 / 768 / 992 / 1200
+   ========================================================================== */
+
+.container {
+  inline-size: 100%;
+  padding-inline: 15px;
+  margin-inline: auto;
+}
+
+@media (min-width: 576px)  { .container { max-inline-size: 540px; } }
+@media (min-width: 768px)  { .container { max-inline-size: 720px; } }
+@media (min-width: 992px)  { .container { max-inline-size: 960px; } }
+@media (min-width: 1200px) { .container { max-inline-size: 1140px; } }
+
+.container-fluid {
+  inline-size: 100%;
+  padding-inline: 15px;
+  margin-inline: auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-inline: -15px;
+}
+
+.no-gutters {
+  margin-inline: 0;
+}
+
+.no-gutters > [class*="col-"],
+.no-gutters > .col {
+  padding-inline: 0;
+}
+
+/* Tüm kolonlar: yatay iç boşluk + varsayılan tam genişlik (mobile-first) */
+[class*="col-"],
+.col,
+.col-auto {
+  padding-inline: 15px;
+  inline-size: 100%;
+}
+
+/* Oran, --col-n üzerinden tek formülle hesaplanıyor */
+[class*="col-"] {
+  flex: 0 0 calc(var(--col-n, 12) / 12 * 100%);
+  max-inline-size: calc(var(--col-n, 12) / 12 * 100%);
+}
+
+/* Kalan alanı paylaşan kolon */
+.col {
+  flex: 1 0 0%;
+  inline-size: auto;
+  max-inline-size: 100%;
+}
+
+/* İçeriği kadar yer kaplayan kolon */
+.col-auto {
+  flex: 0 0 auto;
+  inline-size: auto;
+  max-inline-size: 100%;
+}
+
+/* --- Kolon oranları (taban) ---------------------------------------------- */
+.col-1  { --col-n: 1; }
+.col-2  { --col-n: 2; }
+.col-3  { --col-n: 3; }
+.col-4  { --col-n: 4; }
+.col-5  { --col-n: 5; }
+.col-6  { --col-n: 6; }
+.col-7  { --col-n: 7; }
+.col-8  { --col-n: 8; }
+.col-9  { --col-n: 9; }
+.col-10 { --col-n: 10; }
+.col-11 { --col-n: 11; }
+.col-12 { --col-n: 12; }
+
+@media (min-width: 576px) {
+  .col-sm-1  { --col-n: 1; }  .col-sm-2  { --col-n: 2; }
+  .col-sm-3  { --col-n: 3; }  .col-sm-4  { --col-n: 4; }
+  .col-sm-5  { --col-n: 5; }  .col-sm-6  { --col-n: 6; }
+  .col-sm-7  { --col-n: 7; }  .col-sm-8  { --col-n: 8; }
+  .col-sm-9  { --col-n: 9; }  .col-sm-10 { --col-n: 10; }
+  .col-sm-11 { --col-n: 11; } .col-sm-12 { --col-n: 12; }
+}
+
+@media (min-width: 768px) {
+  .col-md-1  { --col-n: 1; }  .col-md-2  { --col-n: 2; }
+  .col-md-3  { --col-n: 3; }  .col-md-4  { --col-n: 4; }
+  .col-md-5  { --col-n: 5; }  .col-md-6  { --col-n: 6; }
+  .col-md-7  { --col-n: 7; }  .col-md-8  { --col-n: 8; }
+  .col-md-9  { --col-n: 9; }  .col-md-10 { --col-n: 10; }
+  .col-md-11 { --col-n: 11; } .col-md-12 { --col-n: 12; }
+}
+
+@media (min-width: 992px) {
+  .col-lg-1  { --col-n: 1; }  .col-lg-2  { --col-n: 2; }
+  .col-lg-3  { --col-n: 3; }  .col-lg-4  { --col-n: 4; }
+  .col-lg-5  { --col-n: 5; }  .col-lg-6  { --col-n: 6; }
+  .col-lg-7  { --col-n: 7; }  .col-lg-8  { --col-n: 8; }
+  .col-lg-9  { --col-n: 9; }  .col-lg-10 { --col-n: 10; }
+  .col-lg-11 { --col-n: 11; } .col-lg-12 { --col-n: 12; }
+}
+
+@media (min-width: 1200px) {
+  .col-xl-1  { --col-n: 1; }  .col-xl-2  { --col-n: 2; }
+  .col-xl-3  { --col-n: 3; }  .col-xl-4  { --col-n: 4; }
+  .col-xl-5  { --col-n: 5; }  .col-xl-6  { --col-n: 6; }
+  .col-xl-7  { --col-n: 7; }  .col-xl-8  { --col-n: 8; }
+  .col-xl-9  { --col-n: 9; }  .col-xl-10 { --col-n: 10; }
+  .col-xl-11 { --col-n: 11; } .col-xl-12 { --col-n: 12; }
+}
+
+/* --- Kurumsal markup'ın kullandığı birkaç yardımcı ------------------------ */
+
+.position-relative { position: relative; }
+.d-flex { display: flex; }
+.d-none { display: none; }
+.align-items-center { align-items: center; }
+.justify-content-between { justify-content: space-between; }
+.text-center { text-align: center; }

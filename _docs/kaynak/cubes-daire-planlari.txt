@@ -1,0 +1,470 @@
+https://www.cubesankara.com.tr/#!proje-plan
+(21.10.2026'da siteden alındı; tip listesi ve oda ölçüleri birebir)
+
+SKY
+CUBE B
+KONUT 1+1
+L 2 TİPİ
+Salon & Mutfak :
+17,78 m2
+Yatak Odası & Çalışma Odası :
+7,26 m2
+Banyo :
+3,30 m2
+Net Alan :
+28,34 m2
+Toplam Brüt Alan :
+47,00 m2
+SKY
+CUBE A
+KONUT 1+1
+L 1 TİPİ
+Salon & Mutfak :
+24,12 m2
+Yatak Odası & Çalışma Odası :
+12,34 m2
+Banyo :
+5,36 m2
+Balkon :
+3,24 m2
+Net Alan :
+45,06 m2
+Toplam Brüt Alan :
+78,00 m2
+CUBE
+KONUT 1+1
+A TİPİ
+Salon & Mutfak :
+30,67 m2
+Yatak Odası :
+11,59 m2
+Hol :
+2,92 m2
+Banyo :
+4,51 m2
+Net Alan :
+49,69 m2
+Toplam Brüt Alan :
+85,00 m2
+EXTENSION CUBE
+KONUT 1+1
+B TİPİ
+Salon & Mutfak :
+43,00 m2
+Yatak Odası :
+11,49 m2
+Hol :
+2,92 m2
+Banyo :
+4,51 m2
+Balkon :
+6,03 m2
+Net Alan :
+67,95 m2
+Toplam Brüt Alan :
+119,00 m2
+CORNER
+LARGE CUBE
+KONUT 2+1
+C TİPİ
+Salon & Mutfak :
+39,59 m2
+Yatak Odası :
+13,58 m2
+Ebeveyn Yatak Odası :
+14,08 m2
+Giyinme :
+4,12 m2
+Hol :
+2,53 m2
+Giriş Holü :
+3,99 m2
+Banyo :
+4,77 m2
+Balkon :
+25,04 m2
+Net Alan :
+107,70 m2
+Toplam Brüt Alan :
+181,00 m2
+CORNER CUBE
+KONUT 2+1
+D TİPİ
+Salon & Mutfak :
+33,62 m2
+Yatak Odası :
+11,81 m2
+Ebeveyn Yatak Odası :
+9,76 m2
+Giyinme :
+6,78 m2
+Giriş Holü :
+7,22 m2
+Banyo :
+4,28 m2
+Net Alan :
+73,47 m2
+Toplam Brüt Alan :
+123,00 m2
+BE-LONG
+CUBE
+KONUT 2+1
+E TİPİ
+Salon & Mutfak :
+25,70 m2
+Yatak Odası - 1 :
+15,13 m2
+Yatak Odası - 2 :
+9,16 m2
+Hol :
+2,19 m2
+Giriş Holü :
+3,86 m2
+Banyo :
+4,61 m2
+Net Alan :
+60,65 m2
+Toplam Brüt Alan :
+110,00 m2
+BE-LONG
+CUBE
+KONUT 2+1
+E TİPİ
+Salon & Mutfak :
+20,08 m2
+Yatak Odası - 1 :
+11,36 m2
+Yatak Odası - 2 :
+11,32 m2
+Hol :
+8,75 m2
+Giriş Holü :
+4,74 m2
+Banyo :
+3,99 m2
+Balkon :
+15,11 m2
+Net Alan :
+75,35 m2
+Toplam Brüt Alan :
+138,00 m2
+BE-LONG
+CUBE 2+1
+KONUT 2+1
+F TİPİ
+Salon & Mutfak :
+24,86 m2
+Yatak Odası - 1 :
+10,18 m2
+Yatak Odası - 2 :
+14,06 m2
+Giriş Holü :
+7,24 m2
+Banyo :
+4,26 m2
+Balkon :
+9,86 m2
+Net Alan :
+70,46 m2
+Toplam Brüt Alan :
+130,00 m2
+BE-LONG
+EXTENSION CUBE
+KONUT 2+1
+G TİPİ
+Salon & Mutfak :
+34,74 m2
+Yatak Odası - 1 :
+15,75 m2
+Yatak Odası - 2 :
+11,18 m2
+Hol :
+7,68 m2
+Giriş Holü :
+4,83 m2
+Banyo :
+3,99 m2
+Net Alan :
+78,17 m2
+Toplam Brüt Alan :
+138,00 m2
+CUBE 2+1
+KONUT 2+1
+H TİPİ
+Salon & Mutfak :
+45,23 m2
+Yatak Odası :
+14,71 m2
+Ebeveyn Yatak Odası :
+20,17 m2
+Ebeveyn Giyinme & Banyo :
+10,86 m2
+Hol :
+3,40 m2
+Giriş Holü :
+6,24 m2
+Banyo :
+4,21 m2
+Net Alan :
+104,82 m2
+Toplam Brüt Alan :
+180,00 m2
+EXTENSION CUBE
+KONUT 2+1
+I TİPİ
+Salon & Mutfak :
+55,06 m2
+Yatak Odası :
+14,71 m2
+Ebeveyn Yatak Odası :
+20,17 m2
+Ebeveyn Giyinme & Banyo :
+10,86 m2
+Hol :
+3,40 m2
+Giriş Holü :
+6,24 m2
+Banyo :
+4,21 m2
+Net Alan :
+114,65 m2
+Toplam Brüt Alan :
+196,00 m2
+CORNER
+CUBE 3+1
+KONUT 3+1
+J TİPİ
+Salon :
+37,31 m2
+Mutfak :
+9,33 m2
+Yatak Odası - 1 :
+16,89 m2
+Yatak Odası - 2 :
+16,89 m2
+Ebeveyn Yatak Odası :
+15,79 m2
+Giyinme :
+4,01 m2
+Ebeveyn Banyo :
+4,16 m2
+Banyo :
+4,52 m2
+Kiler :
+2,26 m2
+Hol :
+6,12 m2
+Giriş Holü :
+5,50 m2
+Net Alan :
+122,78 m2
+Toplam Brüt Alan :
+208,00 m2
+CORNER
+LARGE CUBE
+KONUT 3+1
+K TİPİ
+Salon :
+41,08 m2
+Mutfak :
+14,29 m2
+Yatak Odası - 1 :
+15,56 m2
+Yatak Odası - 2 :
+15,55 m2
+Ebeveyn Yatak Odası :
+18,82 m2
+Çamaşır Odası :
+3,53 m2
+Banyo :
+6,80 m2
+Ebeveyn Banyo :
+5,04 m2
+Hol :
+7,20 m2
+Giriş Holü :
+5,64 m2
+Balkon :
+25,04 m2
+Net Alan :
+158,55 m2
+Toplam Brüt Alan :
+266,00 m2
+BE-LONG
+CUBE 3+1
+KONUT 3+1
+M TİPİ
+Salon & Mutfak :
+52,21 m2
+Yatak Odası - 1 :
+11,46 m2
+Yatak Odası - 2 :
+10,72 m2
+Ebeveyn Yatak Odası :
+27,71 m2
+Ebeveyn Banyo :
+4,72 m2
+Banyo :
+4,25 m2
+Hol :
+9,00 m2
+Kiler :
+1,38 m2
+Net Alan :
+121,45 m2
+Toplam Brüt Alan :
+217,00 m2
+BE-LONG
+EXTENSION CUBE
+3+1
+M TİPİ
+Salon & Mutfak :
+63,91 m2
+Oturma Odası :
+16,09 m2
+Ebeveyn Yatak Odası :
+18,16 m2
+Yatak Odası - 1 :
+15,70 m2
+Yatak Odası - 2 :
+15,70 m2
+Ebeveyn Banyo :
+3,97 m2
+Giyinme Odası :
+7,17 m2
+Banyo :
+4,94 m2
+Kiler :
+2,56 m2
+Giriş Holü :
+5,04 m2
+Hol :
+11.14 m2
+CUBE 4+1
+KONUT 4+1
+N TİPİ
+Salon & Mutfak :
+52,01 m2
+Oturma Odası :
+16,30 m2
+Yatak Odası - 1 :
+15,80 m2
+Yatak Odası - 2 :
+15,80 m2
+Ebeveyn Yatak Odası :
+18,24 m2
+Giyinme :
+7,17 m2
+Banyo :
+4,94 m2
+Ebeveyn Banyo :
+3,97 m2
+Hol :
+11,14 m2
+Giriş Holü :
+5,04 m2
+Kiler :
+2,56 m2
+Net Alan :
+152,97 m2
+Toplam Brüt Alan :
+259,00 m2
+EXTENSION CUBE
+4+1
+N TİPİ
+Salon & Mutfak :
+63,91 m2
+Oturma Odası :
+16,09 m2
+Ebeveyn Yatak Odası :
+18,16 m2
+Yatak Odası - 1 :
+15,70 m2
+Yatak Odası - 2 :
+15,70 m2
+Giriş Holü :
+5,04 m2
+Hol :
+11,14 m2
+Kiler :
+2,56 m2
+Banyo :
+4,94 m2
+Ebeveyn Banyo :
+3,97 m2
+Giyinme :
+7,17 m2
+Net Alan :
+164,38 m2
+Toplam Brüt Alan :
+277,00 m2
+CUBE 6+1
+KONUT 6+1
+O TİPİ
+Salon :
+50,03 m2
+Oturma Odası :
+17,56 m2
+Ebeveyn Yatak Odası :
+18,64 m2
+Giyinme :
+7,42 m2
+Ebeveyn Banyo :
+5,48 m2
+Kiler :
+2,17 m2
+Hol 1 :
+5,13 m2
+Hol 2 :
+7,32 m2
+Giriş Holü :
+10,10 m2
+Mutfak :
+23,72 m2
+Yatak Odası 1 :
+14,62 m2
+Yatak Odası 2 :
+11,02 m2
+Yatak Odası 3 :
+17,70 m2
+Yatak Odası 4 :
+14,29 m2
+Banyo 1 :
+4,61 m2
+Banyo 2 :
+6,10 m2
+Balkon :
+23,98 m2
+Net Alan :
+239,89 m2
+Toplam Brüt Alan :
+399,00 m2
+CUBE
+3+1 DUBLEKS
+P TİPİ
+Salon & Mutfak :
+61,41 m2
+Ebeveyn Yatak Odası :
+19,04 m2
+Yatak Odası - 1 :
+15,47 m2
+Yatak Odası - 2 :
+21,83 m2
+Giriş Holü & Merdiven :
+18,69 m2
+Hol :
+3,24 m2
+Ebeveyn Banyosu :
+5,57 m2
+Banyo 1 :
+5,13 m2
+Banyo 2 :
+4,66 m2
+Vestiyer :
+2,34 m2
+WC :
+2,51 m2
+Net Alan :
+159,89 m2
+Toplam Brüt Alan :
+274,63 m2

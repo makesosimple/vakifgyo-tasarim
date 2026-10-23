@@ -1,0 +1,8 @@
+<svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+<!-- Ödüller: madalya. Kurumsal 96 px ikon diliyle (siyah 1.2 kontur, sarı dolgu) çizildi. -->
+<path d="M36 55.5L26.5 83.5L37.5 79.5L44 88.5L52 63" stroke="black" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M60 55.5L69.5 83.5L58.5 79.5L52 88.5L44 63" fill="#FDB913" stroke="black" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="48" cy="38" r="26" fill="#FDB913" stroke="black" stroke-width="1.2"/>
+<circle cx="48" cy="38" r="20" fill="white" stroke="black" stroke-width="1.2"/>
+<path d="M48 24.5L52.2 33L61.5 34.3L54.8 40.8L56.4 50L48 45.6L39.6 50L41.2 40.8L34.5 34.3L43.8 33L48 24.5Z" fill="#FDB913" stroke="black" stroke-width="1.2" stroke-linejoin="round"/>
+</svg>

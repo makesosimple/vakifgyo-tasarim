@@ -1,0 +1,662 @@
+/* ==========================================================================
+   Vakıf GYO — Alternatif A · Vakıf GYO katmanı
+
+   Kurumsal sitede karşılığı olmayan ya da Vakıf GYO içeriği yüzünden
+   tamamlanması gereken kurallar. Tasarım dili kurumsaldan: #fdb913 sarı,
+   #222 / #5f5f5f metin, #f0f0f0 / #d7d7d7 nötrler, 8px yarıçap, Roboto.
+   Kurumsal CSS rem tabanı 10px'tir (1.6rem = 16px).
+   ========================================================================== */
+
+/* --- Yardımcılar ---------------------------------------------------------- */
+
+.sr-only {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.gyo-up { color: #1e7b34; }
+.gyo-down { color: #ce0000; }
+
+.gyo-ext svg {
+  inline-size: 12px;
+  block-size: 12px;
+  margin-inline-start: 4px;
+  vertical-align: -1px;
+}
+
+/* --- Header: logo --------------------------------------------------------
+   Kurumsal logo 7,3:1, Vakıf GYO logosu 5,8:1. Kurumsal genişlik kuralı
+   korunursa GYO logosu daha uzun duruyor; yükseklik kurumsal logonun görsel
+   kütlesine eşitleniyor. */
+
+.header__logo {
+  flex-shrink: 0;
+}
+
+.header__logo .site__logo img {
+  inline-size: auto;
+  max-inline-size: none;
+  block-size: 40px;
+}
+
+@media (max-width: 767px) {
+  .header__logo .site__logo img { block-size: 30px; }
+}
+
+/* Beş ana menü başlığı (kurumsalda üç). Kurumsal header 767 px'e kadar tam
+   menüyü gösteriyor; 768–1199 aralığında beş başlık tek satıra sığsın diye
+   logo, yazı ve aralıklar kademeli daralıyor. 768–991'de "Ön Talep" düğmesi
+   gizleniyor: aynı eylem mega menünün hızlı bağlantılarında ve Hızlı Erişim
+   panelinde var. */
+.header__menu-link {
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .header__menu-item { margin-inline: 6px; }
+  .header__menu-item > .header__menu-link { padding-inline: 4px; font-size: 1.6rem; }
+  .header__logo .site__logo img { block-size: 32px; }
+  .header__btns .btn { padding-inline: 16px; }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .header__menu-item { margin-inline: 4px; }
+  .header__menu-item > .header__menu-link { font-size: 1.4rem; }
+  .header__logo .site__logo img { block-size: 26px; }
+  .header__btns { display: none; }
+}
+
+.gyo-ticker {
+  font-weight: 500;
+}
+
+/* --- Ana sayfa: hesaplama sekmesi -----------------------------------------
+   03-contract.css'teki `.tab-pane.active{display:block}` kurumsal
+   `.credit-cal.active{display:flex}` kuralını eziyordu. */
+
+.home-tabs .tab-pane.credit-cal.active {
+  display: flex;
+}
+
+@media (max-width: 991px) {
+  .home-tabs .tab-pane.credit-cal.active { flex-direction: column; }
+}
+
+/* Kurumsal .select2 görünümü yerel <select> ile (select2 yok) */
+.gyo-select {
+  position: relative;
+}
+
+.gyo-select select {
+  appearance: none;
+  inline-size: 100%;
+  block-size: 55.61px;
+  padding: 0 48px 0 16px;
+  border: 2px solid #5f5f5f;
+  border-radius: 8px;
+  background: #fff;
+  color: #050505;
+  font-size: 1.6rem;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.gyo-select::after {
+  content: "";
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-end: 20px;
+  inline-size: 9px;
+  block-size: 9px;
+  border-inline-end: 2px solid #5f5f5f;
+  border-block-end: 2px solid #5f5f5f;
+  transform: translateY(-70%) rotate(45deg);
+  pointer-events: none;
+}
+
+.gyo-select select:focus-visible {
+  outline: 0;
+  border-color: #fdb913;
+}
+
+/* Kaydırıcı: kurumsal jQuery UI slider'ın görünümü yerel range ile.
+   İz 4px #d7d7d7, dolu kısım #fdb913, tutamak 27x22 sarı + siyah kenar. */
+.gyo-range {
+  --gyo-fill: 0%;
+  appearance: none;
+  inline-size: 100%;
+  block-size: 22px;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.gyo-range::-webkit-slider-runnable-track {
+  block-size: 4px;
+  border-radius: 2px;
+  background: linear-gradient(to right, #fdb913 var(--gyo-fill), #d7d7d7 var(--gyo-fill));
+}
+
+.gyo-range::-moz-range-track {
+  block-size: 4px;
+  border-radius: 2px;
+  background: #d7d7d7;
+}
+
+.gyo-range::-moz-range-progress {
+  block-size: 4px;
+  border-radius: 2px;
+  background: #fdb913;
+}
+
+.gyo-range::-webkit-slider-thumb {
+  appearance: none;
+  inline-size: 27px;
+  block-size: 22px;
+  margin-block-start: -9px;
+  border: 1px solid #000;
+  border-radius: 16px;
+  background: #fdb913;
+}
+
+.gyo-range::-moz-range-thumb {
+  inline-size: 27px;
+  block-size: 22px;
+  border: 1px solid #000;
+  border-radius: 16px;
+  background: #fdb913;
+}
+
+.gyo-range:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.input-block.range .range__value label {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-block-end: 8px;
+}
+
+.gyo-note {
+  margin-block-start: 16px;
+  font-size: 1.2rem;
+  line-height: 18px;
+  color: #5f5f5f;
+}
+
+/* --- Ana sayfa: hisse ve finansal takvim sekmeleri ------------------------ */
+
+.gyo-market-bottom {
+  display: flex;
+  justify-content: flex-end;
+  padding-block: 24px 48px;
+}
+
+.gyo-market-bottom .button-block {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.gyo-market-bottom .btn-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.gyo-calendar {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.gyo-calendar__item {
+  display: grid;
+  grid-template-columns: 160px 1fr auto;
+  align-items: center;
+  gap: 16px 32px;
+  padding-block: 20px;
+  border-block-end: 1px solid #e0e0e0;
+}
+
+/* Takvim sekmesinde alt bölüm yok; notun alt çizgisi (kurumsal hisse
+   sekmesinde iki bölümü ayırır) burada kaldırıldı. */
+#takvim .market-info__top p {
+  border-bottom: 0;
+}
+
+.gyo-calendar__date {
+  font-weight: 500;
+  color: #000;
+}
+
+.gyo-calendar__title {
+  color: #222;
+}
+
+@media (max-width: 767px) {
+  .gyo-calendar__item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+
+/* --- Ana sayfa: sürdürülebilirlik ------------------------------------------
+   Kurumsalda başlık yerine "Sürdürülebilir Bankacılık" logosu var. Vakıf
+   GYO'nun bu alan için bir işareti yok; başlık metin olarak, kurumsal
+   bölüm başlığı ölçüsünde. */
+
+.gyo-sustain-title {
+  margin-block-end: 24px;
+  font-size: 4rem;
+  line-height: 47px;
+  font-weight: 300;
+  color: #000;
+}
+
+@media (max-width: 767px) {
+  .gyo-sustain-title { font-size: 2.8rem; line-height: 34px; }
+}
+
+/* --- Ana sayfa: bölüm başlığı (kurumsal h2 ritmi) -------------------------- */
+
+.gyo-section-title {
+  margin-block-end: 32px;
+  font-size: 3.2rem;
+  line-height: 40px;
+  font-weight: 300;
+  color: #000;
+}
+
+@media (max-width: 767px) {
+  .gyo-section-title { font-size: 2.4rem; line-height: 30px; margin-block-end: 24px; }
+}
+
+/* --- Ana sayfa: satıştaki projeler (kurumsal .insurance kartları) ---------
+   Kurumsalda üç kart; Vakıf GYO'da dört satıştaki proje. Kart ızgarası
+   kurumsal ritimde (üç sütun) kalıyor, dördüncü kart yatay kaydırmayla
+   geliyor. Swiper yerine CSS scroll-snap. */
+
+.gyo-rail .swiper-wrapper {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  transition: none;
+}
+
+.gyo-rail .swiper-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.gyo-rail .swiper-slide {
+  flex: 0 0 calc(100% / 3);
+  max-inline-size: calc(100% / 3);
+  scroll-snap-align: start;
+}
+
+@media (max-width: 767px) {
+  .gyo-rail .swiper-slide {
+    flex-basis: 82%;
+    max-inline-size: 82%;
+  }
+}
+
+.gyo-rail .swiper-wrapper:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 4px;
+}
+
+.gyo-project {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.gyo-project__media {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-block-end: 24px;
+}
+
+.insurance__item.gyo-project img {
+  display: block;
+  margin-block-end: 0;
+  aspect-ratio: 710 / 410;
+  object-fit: cover;
+  transition: transform 200ms ease;
+}
+
+.gyo-project:hover img,
+.gyo-project:focus-visible img {
+  transform: scale(1.03);
+}
+
+.gyo-project__tag {
+  position: absolute;
+  inset-block-start: 16px;
+  inset-inline-start: 0;
+  padding: 6px 16px;
+  border-radius: 0 8px 8px 0;
+  background: #222;
+  color: #fff;
+  font-size: 1.4rem;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+.gyo-project__place {
+  display: block;
+  margin-block-end: 8px;
+  font-size: 1.4rem;
+  line-height: 20px;
+  color: #5f5f5f;
+}
+
+.gyo-project .landing-heading-h5 {
+  display: inline-block;
+  margin-block-end: 16px;
+  border-block-end: 1px solid transparent;
+}
+
+.gyo-project:hover .landing-heading-h5,
+.gyo-project:focus-visible .landing-heading-h5 {
+  border-block-end-color: #fdb913;
+}
+
+.gyo-project__desc {
+  display: block;
+  color: #000;
+}
+
+.gyo-rail__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-block-start: 8px;
+}
+
+.gyo-rail__nav {
+  display: flex;
+  gap: 12px;
+}
+
+.gyo-rail--static .gyo-rail__nav {
+  visibility: hidden;
+}
+
+.gyo-rail__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 48px;
+  block-size: 48px;
+  border: 2px solid #d7d7d7;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+}
+
+.gyo-rail__btn:hover:not(:disabled) {
+  border-color: #fdb913;
+}
+
+.gyo-rail__btn:disabled {
+  opacity: .4;
+  cursor: default;
+}
+
+.gyo-flip {
+  transform: scaleX(-1);
+}
+
+/* --- Ana sayfa: proje carousel'i ve hızlı erişim --------------------------
+   Kurumsal .quick-access__item görseli üstte ve solda açık tonda; başlık ve
+   butonlar siyah. Vakıf GYO görsellerinde bu açık alan üretimde veriliyor. */
+
+.quick-access__item__content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Hızlı erişim bağlantıları: ikon 32 px sabit kutuda, metinden 12 px ayrık
+   ve dikeyde ortalı; kutu iki satırlık etiket için yeterince geniş. Kurumsal
+   ikon sınıflarının kendi boyut/marj değerleri burada eşitleniyor. */
+@media (min-width: 768px) {
+  .quick-access__item__link {
+    width: 236px;
+    padding: 14px 16px;
+    gap: 12px;
+    align-items: center;
+  }
+  .quick-access__item__link .svg {
+    width: 32px;
+    height: 32px;
+    margin: 0;
+    flex: 0 0 32px;
+    background-size: contain;
+  }
+  .quick-access__item__link .content {
+    line-height: 1.3;
+  }
+}
+@media (max-width: 767px) {
+  .quick-access__item__buttons > div a .svg {
+    width: 32px;
+    height: 32px;
+    background-size: contain;
+  }
+}
+
+/* --- Satış ofisi arama formu ----------------------------------------------- */
+
+form.branch-atm__right__search {
+  margin: 0;
+}
+
+/* --- Yardım bloğu: Ön Talep butonu kurumsal "İletişim Formu" yerinde ------ */
+
+.help__slider .swiper-slide {
+  border-radius: 8px;
+}
+
+/* --- Mobil sekme çubuğu ----------------------------------------------------
+   Kurumsal mobilde üç sekme tek satırda kalıyor, uzun etiketler kendi
+   içinde iki satıra kırılıyor. */
+
+@media (max-width: 767px) {
+  .home-tabs .nav-tabs {
+    flex-wrap: nowrap;
+  }
+
+  .home-tabs .nav-tabs .nav-item {
+    flex: 1 1 0;
+    min-inline-size: 0;
+  }
+}
+
+/* Ana sayfa banner'ı (.banner--fit): görseller make_banners_a.py ile kadraja
+   göre işlendi; görsel banner yüksekliğine sığar.
+   ≤1199: sağa yaslı (metin kutusu görselin soluna biner, kurumsal davranış).
+   ≥1200: görsel KONTEYNERE bağlı konumlanır; dosyada odak nokta (ilk bina /
+   9 rakamı) konteyner solundan K + metin genişliği + 24 px'e yerleştirildi.
+   Konteyner 1140 px ortalı → sol kenarı 50% − 570px; K: 1200–1699'da 290,
+   ≥1700'de 720 (make_banners_a.py K_MID / K_DESK). Böylece ekran büyüdükçe
+   görsel metnin yanında kalır, sağdaki alan dosyadaki gök uzantısıyla dolar;
+   slayt zemini aynı gök tonu (banner-colors.json). */
+.banner--fit .swiper-slide img {
+  left: auto;
+  right: 0;
+  width: auto;
+  max-width: none;
+  height: 100%;
+  object-fit: fill;
+}
+.banner--fit .swiper-slide { overflow: hidden; }
+@media (min-width: 1200px) {
+  .banner--fit .swiper-slide img { right: auto; left: calc(50% - 860px); }
+}
+@media (min-width: 1700px) {
+  .banner--fit .swiper-slide img { left: calc(50% - 1290px); }
+}
+
+/* Çapraz geçişte metin kutuları üst üste binmesin: çıkan slaydın metni
+   hemen söner, görseller karışır, gelen slaydın metni gecikmeli belirir. */
+[data-banner-fade] .banner__text { opacity: 0; transition: opacity 350ms ease; }
+[data-banner-fade] .swiper-slide-active .banner__text { opacity: 1; transition-delay: 650ms; }
+@media (prefers-reduced-motion: reduce) {
+  [data-banner-fade] .banner__text { transition: none; }
+}
+
+/* Çapraz geçiş: slaytlar aynı hücrede üst üste durur (flex'te negatif sağ
+   marj), yalnızca aktif olan görünür; opaklık 1,2 s'de yumuşak geçer.
+   Kaydırma (translateX) vb.js'te data-banner-fade ile kapatılır. */
+[data-banner-fade] .swiper-wrapper { transform: none !important; }
+[data-banner-fade] .swiper-slide {
+  margin-inline-end: -100%;
+  opacity: 0;
+  transition: opacity 1200ms ease-in-out;
+  pointer-events: none;
+}
+[data-banner-fade] .swiper-slide.swiper-slide-active {
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-banner-fade] .swiper-slide { transition: none; }
+}
+
+/* Satış Ofisi Arama: sol düğme kutusu ile sağ arama paneli aynı üst hizada ve
+   aynı yükseklikte; arama alanı ile "Ara" düğmesi aynı boyda. */
+.branch-atm .row { align-items: stretch; }
+.branch-atm .row > .col-md-6 { display: flex; }
+.branch-atm__left, .branch-atm__right { display: flex; flex-direction: column; width: 100%; }
+.branch-atm .branch-atm__left p, .branch-atm .branch-atm__right p { margin: 0 0 16px; }
+.branch-atm .branch-atm__left > .btn, .branch-atm .branch-atm__right__search { flex: 1 1 auto; margin: 0; max-width: none; }
+.branch-atm__left > .btn { display: flex; align-items: center; justify-content: center; }
+.branch-atm__right__search__bottom { display: flex; align-items: stretch; gap: 12px; }
+.branch-atm__right__search__bottom input,
+.branch-atm__right__search__bottom .btn { height: 56px; margin: 0; }
+.branch-atm__right__search__bottom input { flex: 1 1 auto; min-width: 0; }
+@media (max-width: 767px) {
+  .branch-atm .row > .col-md-6 + .col-md-6 { margin-top: 24px; }
+}
+
+/* --- Hızlı Erişim paneli (kurumsal .banner__apply) -------------------------
+   Kurumsal panel 225 px; Vakıf GYO etiketleri iki-üç satıra kırılıyordu.
+   Panel 320 px'e genişledi, etiketler tek satır; artı ikonu yerine her
+   bağlantıya anlamlı çizgi ikon (build_alt_a.py APPLY_ICONS). Mobilde
+   kurumsal tam ekran ızgara düzeni korunur. */
+@media (min-width: 768px) {
+  .banner__apply__opened { width: 320px; right: -320px; padding: 72px 28px; }
+  .banner__apply__opened__btn { right: 320px; }
+  .banner__apply__opened__menu > p { margin-bottom: 20px; white-space: nowrap; }
+  .banner__apply__opened__menu ul li { padding: 10px 0; gap: 14px; }
+  .banner__apply__opened__menu ul li p { white-space: nowrap; font-size: 1.6rem; }
+}
+.banner__apply__opened__menu ul li .gyo-apply-ico { flex: 0 0 24px; width: 24px; height: 24px; }
+/* Telefon: kurumsal iki sütunlu ızgara etiketleri kırıyordu; tek sütun liste,
+   ikon solda, etiket tek satır. */
+@media (max-width: 767px) {
+  .banner__apply__opened__menu ul { display: block; max-width: 300px; margin: 0 auto; }
+  .banner__apply__opened__menu ul li { display: flex; align-items: center; gap: 16px; width: auto; margin: 0; padding: 14px 0; text-align: left; }
+  .banner__apply__opened__menu ul li p { white-space: nowrap; font-size: 1.8rem; line-height: 1.3; }
+}
+
+/* --- Banner proje logosu ---------------------------------------------------
+   ≥1200 px: logo görselin gökyüzüne gömülü (make_banners_a.py), burada gizli.
+   ≤1199 px: metin görselin üstüne bindiği için logo metin kutularının başında,
+   kutularla aynı koyu zeminde (proje adı satırının yerinde). */
+.banner__logo { display: none; }
+@media (max-width: 1199px) {
+  .banner--fit .banner__logo {
+    display: table; margin-bottom: 2px; padding: 12px 32px;
+    background: #222; border-radius: 0 8px 8px 0;
+  }
+  .banner--fit .banner__logo img { display: block; width: auto; height: 44px; position: static; object-fit: contain; z-index: auto; }
+}
+@media (max-width: 767px) {
+  .banner--fit .banner__logo { padding: 8px 16px; }
+  .banner--fit .banner__logo img { height: 26px; }
+}
+
+/* --- Mobil arama paneli -----------------------------------------------------
+   Kurumsal logo görseli dar; Vakıf GYO logosu tüm genişliğe yayılıp sağ üstteki
+   mutlak konumlu "Kapat" düğmesinin altına giriyordu. Logo kurumsal başlıktaki
+   boyunda, sağda düğme için yer ayrıldı; ikisi aynı satırda dikey ortalı. */
+@media (max-width: 990px) {
+  .header__search-content .search-logo { align-items: center; padding-right: 96px; }
+  .header__search-content .search-logo img { display: block; width: auto; height: 36px; max-width: 100%; }
+}
+
+/* Daire ikonlu hızlı bağlantılar (mobil menü + mega menü alt satırı): kurumsal
+   .svg--table 12 px sağ marj taşıyor, daire içinde sola kayıyordu. Daire
+   içindeki ikonlar marjsız ve tam ortalı. */
+.megamenu__links-icon { display: flex; align-items: center; justify-content: center; }
+.megamenu__links-icon .svg { margin: 0; }
+
+/* Telefon: hızlı erişim kartındaki iki kutu farklı satır sayısında farklı
+   yükseklikte kalıyordu; aynı satırdaki kutular eşit boy, alt kenarlar hizalı.
+   İkon üstte, etiket altında; içerik kutunun üstünden başlar. */
+@media (max-width: 767px) {
+  .quick-access__item__buttons > div { align-items: stretch; }
+  .quick-access__item__buttons > div a.quick-access__item__link {
+    display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+    margin-bottom: 16px;
+  }
+}
+
+/* Footer alt satırı: grup şirketi ve proje siteleri logolarıyla. Logolar
+   aynı optik yükseklikte, gri tonda; üstüne gelince/odakta kendi renginde. */
+.footer__sitemap__bottom .gyo-footer-logos { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 40px; }
+.gyo-footer-logos li { margin: 0; padding: 0; }
+.gyo-footer-logos li::before, .gyo-footer-logos li::after { content: none; }
+.gyo-footer-logos a { display: block; padding: 6px 0; }
+.footer__sitemap__bottom .gyo-footer-logos img { display: block; height: var(--h, 28px); width: auto; max-width: none; filter: grayscale(1); opacity: .75; transition: filter .2s, opacity .2s; }
+.footer__sitemap__bottom .gyo-footer-logos a:hover img, .footer__sitemap__bottom .gyo-footer-logos a:focus-visible img { filter: none; opacity: 1; }
+@media (max-width: 767px) {
+  .footer__sitemap__bottom .gyo-footer-logos { justify-content: center; gap: 14px 28px; }
+  .footer__sitemap__bottom .gyo-footer-logos img { height: calc(var(--h, 28px) * .85); }
+}
+
+/* Mega menü: uzun alt liste iki sütun (görsel paneli yok). Masaüstü ve
+   tablette; telefonda kurumsal tek sütun akordeon düzeni korunur. */
+@media (min-width: 768px) {
+  /* CSS sütunları: her öğe kendi yüksekliğinde akar (grid satırları iki
+     sütunda eşitlenip kısa öğelerin altında boşluk bırakıyordu). */
+  .megamenu__sub--cols .megamenu__submenu {
+    width: 100%; overflow: visible; display: block;
+    column-count: 2; column-gap: 40px;
+  }
+  .megamenu__sub--cols .megamenu__submenu-item { break-inside: avoid; }
+  .megamenu__sub--cols .megamenu__submenu-item:last-child { border-bottom: 1px dashed #f0f0f0; }
+}
+
+/* Uzun listeli menülerde görsel sol sütunda, alt başlıkların altında
+   (build_alt_a.py megamenu: aside). Telefonda akordeon düzeninde gizli. */
+.megamenu__aside { display: none; }
+@media (min-width: 991px) {
+  .megamenu__aside {
+    display: block; width: 33.333%;
+    padding: 16px 30px 10px 0;
+    border-right: 1.2px solid #f0f0f0;
+  }
+  .megamenu__aside img { display: block; width: 100%; height: auto; border-radius: 8px; }
+}
+
+/* Ok düğmesi: kurumsal .svg--chevron-left ikonu sağ boşlukla gelir (margin-right:12px);
+   düğme içinde sıfırlanır, ok tam ortada durur */
+.gyo-rail__btn .svg { margin: 0; }

@@ -1,0 +1,11 @@
+# Ham müşteri malzemeleri (büyük ve paylaşılmaz)
+gorseller/
+# Müşteriye giden belgeler (site haritası teklifleri)
+_docs/*.docx
+_docs/*.pdf
+_docs/~$*
+KickOff.md
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db

@@ -1,0 +1,1674 @@
+/* ==========================================================================
+   Vakıf GYO — Alternatif A · iç sayfalar
+   Yatırımcı İlişkileri, proje sitesi (VSancaktepe Merkez), Hakkımızda.
+
+   Kurumsal bileşenler (.subpage-banner, .home-tabs, .retirement, .mix,
+   .sustainable-banking, .private-banking, .sidebar, .helpful-info, .tags,
+   .input-block) olduğu gibi kullanılıyor; aşağıdakiler onların arasını
+   dolduran ya da kurumsalda karşılığı olmayan ek komponentler.
+   Ölçek kurumsal: 8/16/24/32/48 boşluk, 8px yarıçap, #f0f0f0 / #d7d7d7.
+   ========================================================================== */
+
+/* --- Bölüm ritmi ----------------------------------------------------------- */
+
+.gyo-section {
+  padding-block: 56px;
+}
+
+.gyo-section--gray {
+  background: #f5f5f5;
+}
+
+@media (max-width: 767px) {
+  .gyo-section { padding-block: 40px; }
+}
+
+.gyo-row-gap {
+  row-gap: 32px;
+}
+
+.gyo-head {
+  display: flex;
+  flex-wrap: wrap;
+  /* baseline değil: bağlantı ok ikonuyla başlayan bir flex kutusu, taban
+     çizgisi ikonun altı sayılıyor ve bağlantı başlığın üstüne kayıyordu */
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 24px;
+  margin-block-end: 32px;
+}
+
+.gyo-head .gyo-section-title {
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .gyo-head { margin-block-end: 24px; }
+}
+
+.gyo-section-lede,
+.gyo-lede {
+  max-inline-size: 640px;
+  margin-block: -16px 32px;
+  font-size: 1.8rem;
+  line-height: 28px;
+  color: #222;
+}
+
+.gyo-lede {
+  margin-block: 0 24px;
+}
+
+@media (max-width: 767px) {
+  .gyo-section-lede,
+  .gyo-lede { font-size: 1.6rem; line-height: 26px; }
+}
+
+.gyo-eyebrow {
+  margin-block-end: 8px;
+  font-size: 1.4rem;
+  line-height: 20px;
+  font-weight: 500;
+  letter-spacing: .02em;
+  color: #5f5f5f;
+}
+
+.retirement__option .gyo-eyebrow + h2 {
+  margin-block-start: 0;
+}
+
+@media (max-width: 767px) {
+  .retirement__option .gyo-eyebrow { margin-block-start: 32px; text-align: center; }
+}
+
+.gyo-retirement-more {
+  margin-block-start: 24px;
+}
+
+/* Kampanya bandı: görsel sağda (masaüstü) */
+@media (min-width: 768px) {
+  .gyo-retirement--flip .row { flex-direction: row-reverse; }
+}
+
+/* --- Sayfa bandı açıklaması ------------------------------------------------ */
+
+.gyo-subpage-lede {
+  max-inline-size: 720px;
+  margin: 0;
+  font-size: 1.8rem;
+  line-height: 28px;
+  color: #000;
+}
+
+@media (max-width: 767px) {
+  .gyo-subpage-lede { margin-block-start: 8px; font-size: 1.6rem; line-height: 24px; }
+}
+
+/* --- Paneller ve listeler -------------------------------------------------- */
+
+.gyo-panel {
+  block-size: 100%;
+  padding: 32px;
+  border: 2px solid #f0f0f0;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.gyo-panel__title {
+  margin-block-end: 16px;
+  font-size: 2.4rem;
+  line-height: 32px;
+  font-weight: 400;
+  color: #000;
+}
+
+.gyo-panel > p:not([class]) {
+  margin-block-end: 16px;
+  color: #222;
+}
+
+@media (max-width: 767px) {
+  .gyo-panel { padding: 24px 16px; }
+  .gyo-panel__title { font-size: 2rem; line-height: 28px; }
+}
+
+/* Doküman / açıklama listesi */
+.gyo-doclist {
+  list-style: none;
+  margin: 0 0 24px;
+  padding: 0;
+  border-block-start: 1px solid #d7d7d7;
+}
+
+.gyo-doclist li {
+  border-block-end: 1px solid #d7d7d7;
+}
+
+.gyo-doclist a {
+  display: grid;
+  grid-template-columns: 96px 1fr auto;
+  align-items: baseline;
+  gap: 4px 24px;
+  padding-block: 16px;
+  color: #000;
+  text-decoration: none;
+}
+
+.gyo-doclist a:hover .gyo-doclist__title,
+.gyo-doclist a:focus-visible .gyo-doclist__title {
+  text-decoration: underline;
+  text-decoration-color: #fdb913;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.gyo-doclist time {
+  font-size: 1.4rem;
+  color: #5f5f5f;
+  white-space: nowrap;
+}
+
+.gyo-doclist__title {
+  font-size: 1.6rem;
+  line-height: 24px;
+}
+
+.gyo-doclist__type {
+  padding: 2px 8px;
+  border: 1px solid #d7d7d7;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  line-height: 18px;
+  font-weight: 500;
+  color: #222;
+}
+
+.gyo-doclist--compact a {
+  grid-template-columns: 1fr auto;
+  padding-block: 12px;
+}
+
+.gyo-doclist--compact time {
+  grid-column: 1 / -1;
+}
+
+.gyo-doclist--certs a {
+  grid-template-columns: 96px 1fr auto;
+}
+
+@media (max-width: 575px) {
+  .gyo-doclist a { grid-template-columns: 1fr auto; }
+  .gyo-doclist time { grid-column: 1 / -1; }
+  .gyo-doclist--certs time { font-weight: 500; color: #000; }
+}
+
+/* Künye: etiket + değer */
+.gyo-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 24px;
+  margin: 0 0 24px;
+}
+
+.gyo-facts > div {
+  padding-block: 12px;
+  border-block-end: 1px solid #d7d7d7;
+}
+
+.gyo-facts dt {
+  font-size: 1.2rem;
+  line-height: 18px;
+  font-weight: 500;
+  color: #5f5f5f;
+}
+
+.gyo-facts dd {
+  margin: 4px 0 0;
+  font-size: 1.8rem;
+  line-height: 26px;
+  font-weight: 500;
+  color: #000;
+}
+
+@media (min-width: 768px) {
+  .gyo-facts--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .gyo-facts--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.gyo-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-block-start: 24px;
+}
+
+/* ==========================================================================
+   YATIRIMCI İLİŞKİLERİ
+   ========================================================================== */
+
+/* --- Hızlı erişim: kurumsal mega menü ikon dairesi ritmi ------------------ */
+
+.gyo-quick {
+  padding-block: 32px 8px;
+}
+
+.gyo-quick__list {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gyo-quick__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  block-size: 100%;
+  padding: 16px 8px;
+  border-radius: 8px;
+  color: #000;
+  font-size: 1.4rem;
+  line-height: 20px;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+}
+
+.gyo-quick__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 64px;
+  block-size: 64px;
+  border: 2px solid #d7d7d7;
+  border-radius: 50%;
+  transition: border-color 120ms ease;
+}
+
+.gyo-quick__item:hover .gyo-quick__icon,
+.gyo-quick__item:focus-visible .gyo-quick__icon {
+  border-color: #fdb913;
+}
+
+@media (max-width: 991px) {
+  .gyo-quick__list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 575px) {
+  .gyo-quick { padding-block: 24px 0; }
+  .gyo-quick__list { gap: 8px; }
+  .gyo-quick__item { padding-inline: 0; font-size: 1.3rem; }
+  .gyo-quick__icon { inline-size: 56px; block-size: 56px; }
+}
+
+/* --- Hisse sekmesi ---------------------------------------------------------- */
+
+.gyo-ir-tabs .tab-pane {
+  padding-block-start: 32px;
+}
+
+.gyo-stock {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+  gap: 32px 48px;
+  align-items: start;
+}
+
+@media (max-width: 991px) {
+  .gyo-stock { grid-template-columns: minmax(0, 1fr); }
+}
+
+.gyo-stock__code {
+  margin-block-end: 8px;
+  font-size: 3.2rem;
+  line-height: 40px;
+  font-weight: 500;
+  color: #000;
+}
+
+.gyo-stock__code span {
+  display: block;
+  font-size: 1.4rem;
+  line-height: 20px;
+  font-weight: 400;
+  color: #5f5f5f;
+}
+
+.gyo-stock__stats dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 24px;
+  margin: 0;
+}
+
+.gyo-stock__stats dl > div {
+  padding-block: 12px;
+  border-block-end: 1px solid #e0e0e0;
+}
+
+.gyo-stock__stats dt {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #5f5f5f;
+}
+
+.gyo-stock__stats dd {
+  margin: 2px 0 0;
+  font-size: 1.8rem;
+  line-height: 26px;
+  font-weight: 500;
+  color: #000;
+}
+
+/* Grafik: tek seri, 2px koyu çizgi, soluk ızgara; sarı yalnızca imleç
+   noktasında ve dolguda (sarı çizgi beyaz zeminde 1,7:1 — çizgi için az). */
+.gyo-chart {
+  margin: 0;
+}
+
+.gyo-chart__cap {
+  margin-block-end: 8px;
+  font-size: 1.2rem;
+  line-height: 18px;
+  color: #5f5f5f;
+}
+
+.gyo-chart__plot {
+  position: relative;
+}
+
+.gyo-chart svg {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  overflow: visible;
+  touch-action: pan-y;
+}
+
+.gyo-chart__grid { stroke: #e6e6e6; stroke-width: 1; }
+.gyo-chart__ylab { font-size: 11px; fill: #5f5f5f; text-anchor: end; }
+.gyo-chart__xlab { font-size: 11px; fill: #5f5f5f; text-anchor: middle; }
+.gyo-chart__area { fill: #fdb913; fill-opacity: .12; }
+.gyo-chart__line { fill: none; stroke: #222; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+.gyo-chart__cross { stroke: #5f5f5f; stroke-width: 1; stroke-dasharray: 3 3; opacity: 0; }
+.gyo-chart__dot { fill: #fdb913; stroke: #000; stroke-width: 1.5; }
+.gyo-chart.is-hover .gyo-chart__cross { opacity: 1; }
+
+@media (max-width: 575px) {
+  .gyo-chart__ylab,
+  .gyo-chart__xlab { font-size: 20px; }
+  .gyo-chart__xlab:nth-of-type(even) { display: none; }
+  .gyo-chart__line { stroke-width: 3; }
+  .gyo-market-bottom .button-block { inline-size: 100%; }
+  .gyo-market-bottom .btn { inline-size: 100%; justify-content: center; }
+}
+
+.gyo-chart__tip {
+  position: absolute;
+  inset-block-start: 0;
+  padding: 6px 10px;
+  border-radius: 4px;
+  background: #222;
+  color: #fff;
+  font-size: 1.3rem;
+  line-height: 18px;
+  white-space: nowrap;
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+.gyo-chart__table {
+  margin-block-start: 16px;
+  font-size: 1.4rem;
+}
+
+.gyo-chart__table summary {
+  display: inline-block;
+  cursor: pointer;
+  font-weight: 500;
+  border-block-end: 1px solid #fdb913;
+}
+
+.gyo-chart__table table {
+  inline-size: 100%;
+  max-inline-size: 360px;
+  margin-block-start: 12px;
+  border-collapse: collapse;
+}
+
+.gyo-chart__table th,
+.gyo-chart__table td {
+  padding: 6px 0;
+  border-block-end: 1px solid #e6e6e6;
+  font-weight: 400;
+  text-align: start;
+}
+
+.gyo-chart__table td {
+  text-align: end;
+}
+
+/* --- Özet veriler ---------------------------------------------------------- */
+
+.gyo-kpis__period {
+  margin-block-end: 16px;
+  font-size: 1.4rem;
+  color: #5f5f5f;
+}
+
+.gyo-kpis {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.gyo-kpi {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px;
+  border: 2px solid #f0f0f0;
+  border-radius: 8px;
+}
+
+.gyo-kpi__label {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #5f5f5f;
+}
+
+.gyo-kpi__value {
+  font-size: 3.6rem;
+  line-height: 42px;
+  font-weight: 300;
+  color: #000;
+}
+
+.gyo-kpi__value small {
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+@media (max-width: 767px) {
+  .gyo-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .gyo-kpi { padding: 16px; }
+  .gyo-kpi__value { font-size: 2.4rem; line-height: 30px; }
+}
+
+/* --- Raporlar --------------------------------------------------------------- */
+
+.gyo-reports {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+}
+
+@media (min-width: 576px) and (max-width: 991px) {
+  .gyo-reports { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.gyo-report {
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.gyo-report img {
+  flex: 0 0 auto;
+  inline-size: 112px;
+  block-size: auto;
+  align-self: flex-start;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / .12);
+}
+
+.gyo-report__title {
+  margin-block-end: 8px;
+  font-size: 1.8rem;
+  line-height: 26px;
+  font-weight: 500;
+  color: #000;
+}
+
+.gyo-report__body p {
+  margin-block-end: 16px;
+  font-size: 1.4rem;
+  line-height: 22px;
+  color: #222;
+}
+
+@media (max-width: 767px) {
+  .gyo-reports { gap: 16px; }
+  .gyo-report { padding: 16px; }
+  .gyo-report img { inline-size: 88px; }
+}
+
+/* --- Yatırımcı çantası (ek komponent) ------------------------------------- */
+
+.gyo-bag__all {
+  padding-block: 12px;
+  border-block-end: 1px solid #d7d7d7;
+}
+
+.gyo-bag__list {
+  margin: 0 0 24px;
+  padding: 0;
+  list-style: none;
+}
+
+.gyo-bag__list .checkbox-block {
+  padding-block: 12px;
+  border-block-end: 1px solid #f0f0f0;
+}
+
+.gyo-bag .checkbox-block label {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 0;
+  padding-inline-start: 12px;
+  font-size: 1.5rem;
+  line-height: 22px;
+  cursor: pointer;
+}
+
+.gyo-bag__all label {
+  font-weight: 500;
+}
+
+.gyo-bag .checkbox-block input {
+  flex: 0 0 auto;
+  inline-size: 20px;
+  block-size: 20px;
+  accent-color: #222;
+  cursor: pointer;
+}
+
+.gyo-bag__type {
+  flex: 0 0 auto;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #5f5f5f;
+}
+
+.gyo-bag__btn {
+  inline-size: 100%;
+}
+
+.gyo-bag__btn:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+/* --- Hizmetler: dört sütunlu .mix ----------------------------------------- */
+
+.gyo-mix4 {
+  padding-block-start: 56px;
+}
+
+.gyo-mix4 .mix__content {
+  padding: 24px;
+  border: 2px solid #f0f0f0;
+  border-radius: 8px;
+  text-align: start;
+}
+
+.gyo-mix4 .mix__content__top {
+  display: flex;
+  flex-direction: column;
+}
+
+.gyo-mix4 .mix__content__top__text {
+  text-align: start;
+  padding: 0;
+}
+
+.gyo-mix4 .mix__content img {
+  inline-size: 40px;
+  block-size: 40px;
+}
+
+.gyo-mix4 .mix__content__links {
+  justify-content: flex-start;
+}
+
+/* ==========================================================================
+   PROJE SİTESİ — VSancaktepe Merkez
+   ========================================================================== */
+
+/* Header: proje logosu (2,2:1) kurumsal logo yuvasında */
+.gyo-project-header .header__logo .site__logo img {
+  block-size: 56px;
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .gyo-project-header .header__logo .site__logo img { block-size: 44px; }
+}
+
+@media (max-width: 767px) {
+  .gyo-project-header .header__logo .site__logo img { block-size: 40px; }
+}
+
+.gyo-byline img {
+  inline-size: auto;
+  block-size: 12px;
+  margin-inline-end: 8px;
+}
+
+/* Kurumsal header 5 menü başlığına göre ayarlı; projede 7 kısa başlık */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .gyo-project-header .header__menu-item > .header__menu-link { font-size: 1.4rem; }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .gyo-project-header .header__menu-item { margin-inline: 2px; }
+  .gyo-project-header .header__menu-item > .header__menu-link { font-size: 1.3rem; padding-inline: 2px; }
+}
+
+.gyo-vs [id] {
+  scroll-margin-block-start: 96px;
+}
+
+/* --- Proje özeti ----------------------------------------------------------- */
+
+.gyo-vs-about {
+  padding-block-start: 56px;
+}
+
+.gyo-vs .insurance {
+  padding-block-start: 56px;
+}
+
+.gyo-vs-about .retirement__option {
+  padding-block-start: 24px;
+}
+
+@media (max-width: 767px) {
+  .gyo-vs-about,
+  .gyo-vs .insurance { padding-block-start: 40px; }
+}
+
+@media (max-width: 767px) {
+  .gyo-vs-about .retirement__option h2 { text-align: start; margin-block-start: 0; }
+  .gyo-vs-about .gyo-eyebrow { text-align: start; }
+}
+
+/* --- Daire tipleri --------------------------------------------------------- */
+
+.gyo-vs-tabs .gyo-section-title {
+  margin-block-start: 24px;
+}
+
+.gyo-vs-tabs .tab-pane {
+  padding-block-start: 32px;
+}
+
+.gyo-plans__tags {
+  margin-block-end: 24px;
+}
+
+.gyo-plans__tags .tag {
+  min-inline-size: 72px;
+  padding-inline: 20px;
+  background: #fff;
+  font-size: 1.6rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.gyo-plan {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: 32px 48px;
+  align-items: start;
+}
+
+.gyo-plan[hidden] {
+  display: none;
+}
+
+.gyo-plan__img {
+  margin: 0;
+  border: 2px solid #f0f0f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.gyo-plan__img img {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+}
+
+.gyo-plan__name {
+  margin-block-end: 16px;
+  font-size: 3.2rem;
+  line-height: 40px;
+  font-weight: 500;
+  color: #000;
+}
+
+.gyo-plan__name span {
+  margin-inline-start: 8px;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #5f5f5f;
+}
+
+.gyo-plan__totals {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0 0 24px;
+  padding: 0;
+  list-style: none;
+}
+
+.gyo-plan__totals li {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px;
+  border-radius: 8px;
+  background: #fff8e9;
+}
+
+.gyo-plan__totals span {
+  font-size: 1.2rem;
+  line-height: 16px;
+  font-weight: 500;
+  color: #5f5f5f;
+}
+
+.gyo-plan__totals strong {
+  font-size: 2rem;
+  line-height: 26px;
+  font-weight: 500;
+  color: #000;
+}
+
+.gyo-plan__rooms {
+  margin-block-end: 24px;
+  font-size: 1.5rem;
+}
+
+.gyo-plan__rooms summary {
+  display: inline-block;
+  cursor: pointer;
+  font-weight: 500;
+  border-block-end: 1px solid #fdb913;
+}
+
+.gyo-plan__rooms table {
+  inline-size: 100%;
+  margin-block-start: 12px;
+  border-collapse: collapse;
+}
+
+.gyo-plan__rooms th,
+.gyo-plan__rooms td {
+  padding: 6px 0;
+  border-block-end: 1px solid #f0f0f0;
+  font-weight: 400;
+  text-align: start;
+}
+
+.gyo-plan__rooms td {
+  text-align: end;
+  white-space: nowrap;
+}
+
+@media (max-width: 991px) {
+  .gyo-plan { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 575px) {
+  .gyo-plan__totals { gap: 4px; }
+  .gyo-plan__totals li { padding: 12px 8px; }
+  .gyo-plan__totals strong { font-size: 1.6rem; line-height: 22px; }
+}
+
+/* --- Öne çıkan özellikler -------------------------------------------------- */
+
+.gyo-feats {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gyo-feat__icon {
+  inline-size: 48px;
+  block-size: 48px;
+  margin-block-end: 16px;
+}
+
+.gyo-feat__title {
+  margin-block-end: 8px;
+  font-size: 1.8rem;
+  line-height: 24px;
+  font-weight: 500;
+  color: #000;
+}
+
+.gyo-feat__text {
+  margin: 0;
+  font-size: 1.4rem;
+  line-height: 22px;
+  color: #222;
+}
+
+@media (max-width: 1199px) {
+  .gyo-feats { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 32px; }
+}
+
+@media (max-width: 575px) {
+  .gyo-feats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 16px; }
+  .gyo-feat__title { font-size: 1.6rem; line-height: 22px; }
+}
+
+/* Sosyal olanak kartı: bağlantısız */
+.gyo-project--static .landing-heading-h5 {
+  display: block;
+  margin-block-end: 8px;
+}
+
+/* --- Galeri ----------------------------------------------------------------- */
+
+.gyo-gallery__filter {
+  margin-block-end: 24px;
+}
+
+.gyo-gallery__filter .tag {
+  background: #fff;
+  cursor: pointer;
+}
+
+.gyo-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gyo-gallery__item {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.gyo-gallery__item:first-child {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.gyo-gallery__item img {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+@media (max-width: 767px) {
+  .gyo-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+}
+
+/* --- İlerleme durumu --------------------------------------------------------- */
+
+.gyo-video {
+  margin: 0;
+}
+
+.gyo-video video {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  border-radius: 8px;
+  background: #000;
+}
+
+.gyo-video figcaption {
+  margin-block-start: 8px;
+  font-size: 1.4rem;
+  color: #5f5f5f;
+}
+
+.gyo-months ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gyo-months a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-block: 10px;
+  border-block-end: 1px solid #f0f0f0;
+  color: #000;
+  font-size: 1.4rem;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.gyo-months a[aria-current] {
+  font-weight: 500;
+}
+
+.gyo-months .svg--play {
+  flex: 0 0 auto;
+  inline-size: 20px;
+  block-size: 20px;
+  background-size: 20px;
+}
+
+/* --- Konum ----------------------------------------------------------------- */
+
+.gyo-distances {
+  margin: 0 0 8px;
+  padding: 0;
+  list-style: none;
+  border-block-start: 1px solid #d7d7d7;
+}
+
+.gyo-distances li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-block: 14px;
+  border-block-end: 1px solid #d7d7d7;
+  font-size: 1.6rem;
+}
+
+.gyo-distances strong {
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.gyo-map {
+  overflow: hidden;
+  border-radius: 8px;
+  border: 2px solid #f0f0f0;
+  aspect-ratio: 4 / 3;
+}
+
+.gyo-map iframe {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  border: 0;
+}
+
+/* --- Ön talep formu --------------------------------------------------------- */
+
+.gyo-form__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 24px;
+}
+
+@media (max-width: 767px) {
+  .gyo-form__grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+.gyo-form .input-block label {
+  display: block;
+}
+
+/* Kurumsal CSS e-posta alanını stillemiyor; metin alanıyla aynı */
+.gyo-form input[type="email"] {
+  inline-size: 100%;
+  padding: 14px 16px;
+  border: 2px solid #5f5f5f;
+  border-radius: 8px;
+  outline: 0;
+  background: #fff;
+}
+
+.gyo-form input:focus-visible,
+.gyo-form select:focus-visible {
+  border-color: #fdb913;
+}
+
+.gyo-form input[aria-invalid="true"] {
+  border-color: #ce0000;
+}
+
+.gyo-form .checkbox-block {
+  align-items: flex-start;
+  gap: 12px;
+  margin-block-end: 16px;
+}
+
+.gyo-form .checkbox-block input {
+  flex: 0 0 auto;
+  inline-size: 20px;
+  block-size: 20px;
+  margin-block-start: 2px;
+  accent-color: #222;
+}
+
+.gyo-form .checkbox-block label {
+  margin: 0;
+  font-size: 1.4rem;
+  line-height: 22px;
+}
+
+.gyo-form__btn {
+  min-inline-size: 200px;
+  margin-block-start: 8px;
+}
+
+.gyo-form__done {
+  margin-block-start: 16px;
+  padding: 16px;
+  border-radius: 8px;
+  background: #fff8e9;
+  color: #000;
+}
+
+.gyo-office__list {
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.gyo-office__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding-block: 12px;
+  border-block-end: 1px solid #f0f0f0;
+  font-size: 1.6rem;
+  line-height: 24px;
+}
+
+.gyo-office__list .svg {
+  flex: 0 0 auto;
+  inline-size: 24px;
+  block-size: 24px;
+  background-size: 24px;
+}
+
+/* --- Footer: proje logosu ve Vakıf GYO güvencesi -------------------------- */
+
+.gyo-footer-vs img {
+  inline-size: auto;
+  block-size: 60px;
+}
+
+@media (min-width: 768px) {
+  .gyo-footer-guarantee { margin-block-start: 24px; }
+}
+
+.gyo-footer-guarantee img {
+  display: block;
+  inline-size: auto;
+  block-size: 20px;
+  margin-block-end: 8px;
+}
+
+@media (max-width: 767px) {
+  .gyo-footer-guarantee img { margin-inline: auto; }
+}
+
+/* --- Mobil sabit alt çubuk: Ara · WhatsApp · Ön Talep --------------------- */
+
+.gyo-dock {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .gyo-dock {
+    position: fixed;
+    inset-inline: 0;
+    inset-block-end: 0;
+    z-index: 50;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.4fr;
+    gap: 8px;
+    padding: 8px 16px calc(8px + env(safe-area-inset-bottom));
+    background: #fff;
+    box-shadow: 0 -2px 8px rgb(0 0 0 / .12);
+  }
+
+  .gyo-dock a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-block-size: 48px;
+    border: 2px solid #d7d7d7;
+    border-radius: 8px;
+    color: #000;
+    font-size: 1.4rem;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  .gyo-dock .svg {
+    inline-size: 24px;
+    block-size: 24px;
+    background-size: 24px;
+  }
+
+  .gyo-dock .gyo-dock__primary {
+    border-color: #fdb913;
+    background: #fdb913;
+  }
+
+  body:has(.gyo-dock) {
+    padding-block-end: 64px;
+  }
+}
+
+/* ==========================================================================
+   HAKKIMIZDA — statik içerik + kurumsal yan menü
+   ========================================================================== */
+
+.gyo-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 48px;
+}
+
+.gyo-layout__main {
+  flex: 1 1 auto;
+  min-inline-size: 0;
+  max-inline-size: 760px;
+  padding-block-start: 48px;
+}
+
+.gyo-layout .sidebar {
+  flex: 0 0 350px;
+  margin-inline: 0;
+  position: sticky;
+  inset-block-start: 24px;
+}
+
+@media (max-width: 991px) {
+  .gyo-layout { flex-direction: column; gap: 0; }
+  .gyo-layout__main { padding-block-start: 32px; max-inline-size: none; }
+  .gyo-layout .sidebar { position: static; flex-basis: auto; margin-block-start: 16px; }
+}
+
+.gyo-article h2 {
+  margin-block: 48px 16px;
+}
+
+@media (max-width: 767px) {
+  .gyo-article h2 { margin-block: 40px 16px; }
+}
+
+.gyo-article .gyo-facts {
+  margin-block-start: 32px;
+}
+
+/* Yönetim politikası: kurumsal .helpful-info kutusu, 2x2 */
+.gyo-policy {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px 40px;
+}
+
+.gyo-policy .helpful-info__content {
+  margin: 0;
+}
+
+.gyo-policy .helpful-info__content h3 {
+  margin-block-end: 8px;
+  font-size: 2rem;
+  line-height: 28px;
+  font-weight: 500;
+}
+
+.gyo-policy .helpful-info__content p {
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .gyo-policy { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+}
+
+.gyo-figure {
+  margin: 0 0 24px;
+}
+
+.gyo-figure img {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  border-radius: 8px;
+}
+
+.gyo-sidebar .sidebar__title {
+  margin-block-start: 0;
+}
+
+.gyo-sidebar .first__level ul {
+  margin-block-end: 16px;
+}
+
+.gyo-sidebar li.active > a {
+  font-weight: 500 !important;
+}
+
+.gyo-aside-box {
+  margin-block-start: 24px;
+  padding: 24px 32px;
+  border-radius: 8px;
+  background: #f5f5f5;
+}
+
+.mobile-first .gyo-aside-box__title {
+  margin-block-end: 8px;
+  font-size: 2rem;
+  line-height: 28px;
+  font-weight: 500;
+}
+
+.mobile-first .gyo-aside-box p:not(.gyo-aside-box__title) {
+  margin-block-end: 16px;
+  font-size: 1.4rem;
+  line-height: 22px;
+}
+
+
+/* ==========================================================================
+   BANNER SEÇENEKLERİ — karşılaştırma sayfası (banner-alternatifleri.html)
+   ========================================================================== */
+
+.gyo-bv {
+  padding-block: 56px 8px;
+  border-block-start: 1px solid #e6e6e6;
+}
+
+.gyo-bv__intro {
+  margin-block-end: 32px;
+}
+
+.gyo-bv__title {
+  margin-block-end: 12px;
+  font-size: 3.2rem;
+  line-height: 40px;
+  font-weight: 400;
+  color: #000;
+}
+
+.gyo-bv__text {
+  max-inline-size: 760px;
+  margin-block-end: 16px;
+  font-size: 1.6rem;
+  line-height: 26px;
+  color: #222;
+}
+
+.gyo-bv__pc {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 32px;
+  max-inline-size: 960px;
+}
+
+.gyo-bv__pc-head {
+  margin-block-end: 4px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #5f5f5f;
+}
+
+.gyo-bv__pc ul.list li {
+  font-size: 1.5rem;
+  line-height: 24px;
+}
+
+@media (max-width: 767px) {
+  .gyo-bv { padding-block-start: 40px; }
+  .gyo-bv__title { font-size: 2.4rem; line-height: 30px; }
+  .gyo-bv__pc { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* --- Seçenek 1: bileşik banner -------------------------------------------
+   Zemin düz renk (--bg); fotoğraf kendi oranında (--ar) sağa yaslanır,
+   en fazla ekranın %66'sı. Sol kenar elips maskesiyle kavisli. Slayt
+   z-index:0 ile kendi yığın bağlamını kuruyor; kurumsal img z-index:-1
+   aksi hâlde slayt zemininin altında kalıyordu. Mobilde bugünkü kesimler. */
+
+@media (min-width: 768px) {
+  .gyo-bv--comp .home-banner .swiper-slide {
+    z-index: 0;
+    background-color: var(--bg);
+  }
+
+  .gyo-bv--comp .home-banner .swiper-slide img {
+    left: auto;
+    right: 0;
+    inline-size: min(calc(519px * var(--ar)), 66%);
+    -webkit-mask-image: radial-gradient(ellipse 100% 150% at 100% 50%, #000 99.4%, transparent 100%);
+    mask-image: radial-gradient(ellipse 100% 150% at 100% 50%, #000 99.4%, transparent 100%);
+  }
+}
+
+/* --- Seçenek 2: ölçü şeması ------------------------------------------------ */
+
+.gyo-spec {
+  margin: 0 0 24px;
+}
+
+.gyo-spec__frame {
+  position: relative;
+  aspect-ratio: 3840 / 1040;
+  border-radius: 8px;
+  background:
+    repeating-linear-gradient(45deg, #f5f5f5 0 12px, #ececec 12px 24px);
+  overflow: hidden;
+  font-size: 1.3rem;
+  line-height: 18px;
+}
+
+.gyo-spec__text,
+.gyo-spec__subject {
+  position: absolute;
+  inset-block: 8%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  padding: 16px;
+  border-radius: 8px;
+  color: #000;
+}
+
+.gyo-spec__text {
+  inset-inline: 4% 58%;
+  background: rgb(255 255 255 / .85);
+  border: 2px solid #d7d7d7;
+}
+
+.gyo-spec__subject {
+  inset-inline: 46% 4%;
+  background: rgb(253 185 19 / .35);
+  border: 2px solid #fdb913;
+}
+
+.gyo-spec__safe {
+  position: absolute;
+  inset-block: 0;
+  inset-inline: 16.7%;
+  border-inline: 2px dashed #222;
+}
+
+.gyo-spec__mobile {
+  position: absolute;
+  inset-block: 0;
+  inset-inline: 46% 7%;
+  border: 2px dashed #ce0000;
+}
+
+.gyo-spec__safe span,
+.gyo-spec__mobile span {
+  position: absolute;
+  inset-block-end: 6px;
+  inset-inline-start: 8px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: #fff;
+  font-size: 1.2rem;
+  white-space: nowrap;
+}
+
+.gyo-spec__mobile span {
+  inset-block-start: 6px;
+  inset-block-end: auto;
+  color: #ce0000;
+}
+
+.gyo-spec__size {
+  position: absolute;
+  inset-block-start: 8px;
+  inset-inline-start: 8px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: #222;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.gyo-spec figcaption {
+  margin-block-start: 12px;
+  font-size: 1.4rem;
+  color: #5f5f5f;
+}
+
+.gyo-spec__list li {
+  font-size: 1.5rem;
+}
+
+.gyo-bv--spec {
+  padding-block-end: 48px;
+}
+
+@media (max-width: 767px) {
+  .gyo-spec__frame { aspect-ratio: 16 / 9; font-size: 1.1rem; }
+  .gyo-spec__safe span, .gyo-spec__mobile span { font-size: 1rem; white-space: normal; }
+}
+
+/* --- Seçenek 3: kutulu banner ---------------------------------------------- */
+
+.gyo-bv-box .banner {
+  border-radius: 8px;
+  margin-block-end: 48px;
+}
+
+@media (min-width: 768px) {
+  .gyo-bv-box .banner .swiper-slide .container,
+  .gyo-bv-box .banner .swiper-controller-wrapper.container {
+    max-inline-size: none;
+    inline-size: 100%;
+    padding-inline: 48px;
+  }
+}
+
+
+/* --- Seçenek 1 (logo kavisli): görsel sağa yaslı, dar ekranda soldaki
+   zemin kırpılır; mobilde mobil kesimler (kurumsal cover). */
+@media (min-width: 768px) {
+  .gyo-bv--logo .home-banner .swiper-slide img {
+    object-position: right center;
+  }
+}
+
+.gyo-bv__sub {
+  margin-block: 32px 16px;
+  font-size: 2rem;
+  line-height: 28px;
+  font-weight: 500;
+  color: #000;
+}
+
+/* --- Yatırımcı İlişkileri: Son Finansal Sonuçlar ----------------------------
+   Kurumsal .retirement'ta görsel sabit oranlı, sağ sütun 48 px üst boşlukla
+   başlıyor; iki sütunun ne üstü ne altı hizalıydı. Görsel sağ sütunun
+   yüksekliğini doldurur (cover); başlık görselin üst, "Tüm Finansal Sonuçlar"
+   alt kenarıyla hizalı. */
+@media (min-width: 768px) {
+  .gyo-ir-results .row { align-items: stretch; }
+  .gyo-ir-results .col-md-6 > picture { display: block; height: 100%; }
+  .gyo-ir-results .col-md-6 > picture img { display: block; height: 100%; object-fit: cover; border-radius: 8px; }
+  .gyo-ir-results .retirement__option { display: flex; flex-direction: column; height: 100%; padding-top: 0; }
+  .gyo-ir-results .retirement__option .gyo-eyebrow { margin-top: 0; }
+  .gyo-ir-results .retirement__option h2 { margin-bottom: 24px; }
+  .gyo-ir-results .retirement__option__link { margin-bottom: 16px; }
+  .gyo-ir-results .gyo-retirement-more { margin-top: auto; padding-top: 8px; }
+  .gyo-ir-results .gyo-retirement-more .arrow-link { margin: 0; }
+}
+
+/* --- Özel Durum Açıklamaları: Genel Kurul kutusuyla aynı boy ----------------
+   Yan yana düzende (≥992) liste sütunu kutu yüksekliğine uzar; satırlar kalan
+   yüksekliği eşit paylaşır, son çizgi kutunun alt kenarıyla hizalı. */
+.gyo-doclist__nodate { display: block; }
+@media (min-width: 992px) {
+  .gyo-disclosures { display: flex; flex-direction: column; }
+  .gyo-disclosures .gyo-doclist { flex: 1 1 auto; display: flex; flex-direction: column; margin-bottom: 0; }
+  .gyo-disclosures .gyo-doclist li { flex: 1 1 auto; display: flex; }
+  .gyo-disclosures .gyo-doclist a { flex: 1 1 auto; align-items: center; align-content: center; }
+  #genel-kurul .gyo-panel { height: 100%; }
+}
+
+/* --- Kurumsal Yönetim ve Sürdürülebilirlik: footer'ın hemen üstünde ---------
+   Gri Raporlar bölümüne bitişik duruyordu; artık beyaz Yatırımcı Hizmetleri
+   ile footer arasında, altta footer'dan ayrık. */
+.gyo-ir-sustain { padding-block: 0 64px; }
+@media (max-width: 767px) { .gyo-ir-sustain { padding-bottom: 40px; } }
+
+/* Kurumsal .subpage-banner.with-button: butonlar arası boşluk ve sarı zeminde
+   çerçeveli butonun beyaz değil şeffaf olması (kurumsalda beyaz zemin). */
+.subpage-banner.with-button .btns { gap: 16px; flex-shrink: 0; }
+.subpage-banner.with-button .btns .btn-outline-primary { background-color: transparent; }
+.subpage-banner.with-button .subpage-banner-title { min-width: 0; }
+@media (max-width: 991px) {
+  .subpage-banner.with-button .title-and-btns { flex-wrap: wrap; align-items: flex-start !important; }
+  .subpage-banner.with-button .btns { width: 100%; margin-top: 24px; padding-left: 0 !important; }
+}
+@media (max-width: 575px) {
+  .subpage-banner.with-button .btns { flex-direction: column; }
+  .subpage-banner.with-button .btns .btn { width: 100%; }
+}
+
+.gyo-head > .arrow-link { margin: 0; }
+
+/* --- VSancaktepe: Sanal Tur bandı (kurumsal .private-banking) -------------
+   Görsel turun salon panoraması; açık tonlu iç mekân üzerinde beyaz metin
+   için solda koyu geçiş (mobilde metin üstte, buton altta: tam örtü). */
+
+.gyo-tour .private-banking__content::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(90deg, rgba(0, 0, 0, .72) 0, rgba(0, 0, 0, .5) 28%, rgba(0, 0, 0, 0) 52%);
+  pointer-events: none;
+}
+
+.gyo-tour .private-banking__content__top__bottom-text .btn {
+  display: inline-flex;
+  width: max-content;
+  border-color: #fdb913;
+  background: #fdb913;
+  color: #000;
+}
+
+.gyo-tour .private-banking__content__top__bottom-text .btn:hover,
+.gyo-tour .private-banking__content__top__bottom-text .btn:focus-visible {
+  border-color: #fff;
+  background: #fff;
+}
+
+@media (max-width: 767px) {
+  .gyo-tour .private-banking__content::after {
+    background: linear-gradient(180deg, rgba(0, 0, 0, .7) 0, rgba(0, 0, 0, .25) 45%, rgba(0, 0, 0, .55) 100%);
+  }
+}
+
+/* Gri bölümden sonra gelen bant (Vakıf GYO güvencesi) zemine yapışmasın */
+.gyo-section--gray + .private-banking {
+  padding-block-start: 56px;
+}
+
+/* --- İlerleme: Aylık Arşiv paneli video yüksekliğinde; liste kendi içinde
+   kayar (masaüstü). Panel yüksekliği satırı belirlemez, videoya uyar. */
+@media (min-width: 992px) {
+  .gyo-progress .gyo-months {
+    display: flex;
+    flex-direction: column;
+    block-size: 0;
+    min-block-size: 100%;
+  }
+
+  .gyo-progress .gyo-months ul {
+    flex: 1 1 auto;
+    min-block-size: 0;
+    overflow-y: auto;
+    padding-inline-end: 8px;
+    scrollbar-width: thin;
+    scrollbar-color: #9e9e9e transparent;
+  }
+}
+
+/* --- Konum: harita kurumsal sadelikte — gri tonlu zemin, kurumsal sarı işaret
+   (OSM'in yeşil işaretinin üstüne, aynı noktaya oturur). */
+.gyo-map {
+  position: relative;
+}
+
+.gyo-map iframe {
+  filter: grayscale(1) contrast(.92) brightness(1.04);
+}
+
+.gyo-map__pin {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  inline-size: 34px;
+  block-size: 46px;
+  margin: -46px 0 0 -17px;
+  pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 46'%3E%3Cpath d='M17 45S2 28.6 2 17a15 15 0 0 1 30 0c0 11.6-15 28-15 28z' fill='%23fdb913' stroke='%23000' stroke-width='2'/%3E%3Ccircle cx='17' cy='17' r='5.5' fill='%23000'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+
+/* Özellik bloklarının metin sürümü (ikonsuz; sitedeki "Merkezinde ... Var" paragrafları) */
+.gyo-feats--text { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+.gyo-feats--text .gyo-feat__text { font-size: 1.5rem; line-height: 24px; margin-top: 8px; }
+@media (max-width: 991px) { .gyo-feats--text { grid-template-columns: 1fr; gap: 24px; } }
+
+/* ==========================================================================
+   PROJE SİTESİ — Cubes Ankara: mor (logo rengi) ve Cubes logosu
+   ========================================================================== */
+.gyo-cubes-header .header__top { background-color: #472562; }
+.gyo-cubes-header .header__links-link { color: #fff; }
+.gyo-cubes-header .header__links-link svg { stroke: #fff; }
+.gyo-cubes-header .header__logo .site__logo img { block-size: 40px; }
+@media (max-width: 767px) {
+  .gyo-cubes-header .header__logo .site__logo img { block-size: 30px; }
+  .gyo-cubes-header.header { border-top-color: #472562; }
+}
+.gyo-cubes .banner__text p { background: #472562; }
+.gyo-cubes .btn-primary, .gyo-cubes-header .btn-primary { background-color: #472562; border-color: #472562; color: #fff; }
+.gyo-cubes .btn-primary:hover, .gyo-cubes-header .btn-primary:hover { background-color: #2a1540; border-color: #2a1540; color: #fff; }
+.gyo-cubes .gyo-section--gray { background: #f4f0f8; }
+.gyo-cubes .gyo-eyebrow, .gyo-cubes .gyo-feat__title, .gyo-cubes .gyo-plan__name span { color: #472562; }
+.gyo-cubes .nav-tabs .nav-link.active { border-bottom-color: #472562; }
+.gyo-cubes .tags .tag.active { background: #472562; border-color: #472562; color: #fff; }
+.gyo-cubes .gyo-plan__totals li { background: #f4f0f8; }
+.gyo-cubes .gyo-section-title::after, .gyo-cubes .gyo-head .gyo-section-title::after { background: #472562; }
+.gyo-cubes .gyo-dock__primary { background: #472562; color: #fff; }
+.gyo-cubes .banner__apply__closed, .gyo-cubes .banner__apply__opened { background: #2a1540; }
+.gyo-footer-cubes img { inline-size: 150px; block-size: auto; }
+/* İki kademeli daire sekmeleri */
+.gyo-plangroup[hidden] { display: none; }
+.gyo-plans__tags--sub { margin-block: -8px 24px; }
+.gyo-plans__tags--sub .tag { font-size: 1.4rem; padding-block: 6px; }
+.gyo-tag--sub span { font-weight: 400; opacity: .7; margin-inline-start: 4px; font-size: 1.2rem; }
+.gyo-plan__rooms--open { margin-block-start: 8px; }
+@media (max-width: 767px) {
+  .gyo-plans__tags { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-block-end: 4px; }
+  .gyo-plans__tags::-webkit-scrollbar { display: none; }
+  .gyo-plans__tags .tag { flex: 0 0 auto; white-space: nowrap; }
+}

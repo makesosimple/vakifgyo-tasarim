@@ -1,0 +1,16 @@
+Borsa İstanbul — VKGYO (Vakıf Gayrimenkul Yatırım Ortaklığı A.Ş.)
+Kaynak: Yahoo Finance (VKGYO.IS) chart + quoteSummary API, 23.10.2026 seans içi (15 dk gecikmeli). Canlı sitede BIST/KAP veri akışından gelmeli.
+
+Son fiyat: 1,43 TL
+Günlük değişim: -%2,72
+Gün içi aralık: 1,39 – 1,48 TL
+52 haftalık aralık: 1,39 – 2,525 TL
+1 yıllık değişim: 1,8975 → 1,43 TL (-%24,6)
+Piyasa değeri: 6.292.000.000 TL (6,29 milyar TL)
+Pay sayısı: 4.400.000.000
+Halka açık pay (float): 1.295.447.981
+Hacim (gün): 30.002.181 lot; ortalama hacim 19.822.259
+PD/DD: 0,22
+F/K: 13,0
+Temettü verimi: %5,44
+1 yıllık günlük kapanış serisi: borsa-vkgyo-1y.json

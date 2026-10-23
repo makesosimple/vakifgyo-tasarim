@@ -1,0 +1,289 @@
+/* ==========================================================================
+   Alt A2 — kurumsal bileşenler esnetilmiş
+   A'nın tüm katmanları (00–05) aynen yüklenir; bu dosya yalnızca A2'de eklenir
+   (build_alt_a2.py). Bileşen ve markup aynı; değişen ölçü, taşma ve renk:
+   - Ana banner 720 / 600 / 440 px (kurumsal 519 / 240); kadrajlar
+     make_banners_a2.py, diğer A2 görselleri make_images_a2.py.
+   - Görselli bantlar (30. yıl, sanal tur, güvence) ekran genişliğinde;
+     öne çıkan proje görseli ekran kenarına taşar.
+   - Vakıf GYO yeşili (logodaki #007a40) üçüncü renk, ölçülü: Hızlı Erişim
+     paneli, proje etiketleri, sürdürülebilirlik bandı. Sarı ve siyah
+     kurumsal rollerinde kalır.
+   ========================================================================== */
+
+:root {
+  --gyo-green: #007a40;
+  --gyo-green-deep: #00522b;
+  --gyo-green-tint: #eef5f0;
+}
+
+/* Tam genişlik bantlar 100vw ile hesaplanır; dikey kaydırma çubuğu kadar
+   yatay taşma oluşmasın. */
+html,
+body {
+  overflow-x: clip;
+}
+
+/* --- Ana banner -------------------------------------------------------------
+   Görsel konumlandırma A ile aynı (04-gyo.css .banner--fit): dosyadaki odak,
+   konteyner solundan K + metin + 24 px'te. Metin kutuları dikeyde banner'ın
+   üst üçte birinde. */
+.banner .home-banner {
+  height: 720px;
+}
+
+.banner__text {
+  padding-top: 200px;
+}
+
+@media (max-width: 1199px) {
+  .banner .home-banner { height: 600px; }
+  .banner__text { padding-top: 160px; }
+}
+
+@media (max-width: 767px) {
+  .banner .home-banner { height: 440px; }
+  .banner__text { padding-top: 24px; }
+}
+
+/* Hızlı Erişim: koyu gri yerine Vakıf GYO yeşilinin koyusu */
+.banner__apply__closed,
+.banner__apply__opened {
+  background: var(--gyo-green-deep);
+}
+
+/* --- Öne çıkan proje (.retirement) -----------------------------------------
+   ≥992: görsel sütunu ekran kenarına taşar ve 600 px yüksekliğe uzar; seçenek
+   kartları dikeyde ortalanır. Kenar = (ekran − konteyner içi) / 2. */
+@media (min-width: 992px) {
+  .retirement:not(.gyo-ir-results) {
+    --bleed: calc((100vw - 930px) / 2);
+    margin-bottom: 80px;
+  }
+
+  .retirement:not(.gyo-ir-results) .row {
+    align-items: center;
+  }
+
+  .retirement:not(.gyo-ir-results) .col-md-6 > picture {
+    display: block;
+    width: calc(100% + var(--bleed));
+    max-width: none;
+    margin-inline-start: calc(-1 * var(--bleed));
+  }
+
+  .retirement:not(.gyo-ir-results) .col-md-6 > picture img {
+    display: block;
+    width: 100%;
+    max-width: none;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .retirement:not(.gyo-ir-results) .retirement__option {
+    padding-top: 0;
+    padding-inline-start: 24px;
+  }
+
+  /* görsel sağda (VSancaktepe kampanya): sağ kenara taşar */
+  .retirement.gyo-retirement--flip .col-md-6 > picture {
+    margin-inline: 0 calc(-1 * var(--bleed));
+  }
+
+  .retirement.gyo-retirement--flip .col-md-6 > picture img {
+    border-radius: 8px 0 0 8px;
+  }
+
+  .retirement.gyo-retirement--flip .retirement__option {
+    padding-inline: 0 24px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .retirement:not(.gyo-ir-results) {
+    --bleed: calc((100vw - 1110px) / 2);
+  }
+}
+
+/* --- Sürdürülebilirlik ------------------------------------------------------
+   Asimetrik bant: açık yeşil zemin ekranın sol kenarından başlar, görselin
+   sağ kenarında biter (sağda zemin devam etmez). Metin konteyner hizasında
+   solda; görsel sağ yarıda, zemine şeffaf rampayla karışır ve konteynerden en
+   çok 360 px taşar (kaynak 1200 px — geniş ekranda büyütülmez). Sağ kenar
+   ekranın içinde kalırsa köşe yuvarlak. Başlık Vakıf GYO yeşili. */
+.sustainable-banking {
+  --sb-end: max(calc(50% - 50vw), -360px);
+  overflow: visible;
+  border-radius: 0;
+  padding: 96px 0;
+  margin-bottom: 80px;
+  background: none;
+}
+
+.sustainable-banking::before {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  inset-inline: calc(50% - 50vw) var(--sb-end);
+  z-index: 0;
+  border-radius: 0 8px 8px 0;
+  background: var(--gyo-green-tint);
+}
+
+.sustainable-banking__bg {
+  inset: 0 var(--sb-end) 0 46%;
+  max-width: none;
+  z-index: 0;
+}
+
+.sustainable-banking__bg img {
+  border-radius: 0 8px 8px 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 22%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 22%);
+}
+
+.sustainable-banking__content {
+  max-width: 460px;
+}
+
+.gyo-sustain-title {
+  color: var(--gyo-green);
+}
+
+@media (max-width: 767px) {
+  .sustainable-banking {
+    padding: 48px 0 0;
+    margin-bottom: 48px;
+  }
+
+  .sustainable-banking__bg {
+    position: relative;
+    inset: auto;
+    display: block;
+    margin-block-start: 32px;
+  }
+
+  .sustainable-banking__bg img {
+    height: 240px;
+    border-radius: 8px;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .sustainable-banking__content {
+    max-width: none;
+  }
+
+  .sustainable-banking__bg {
+    margin-block: 0 32px;
+  }
+
+  .sustainable-banking {
+    padding-block-end: 48px;
+  }
+}
+
+/* --- Projeler (.insurance) ---------------------------------------------------
+   Kart görseli 4:3 (kurumsal ~1,73); durum etiketi yeşil zemin. */
+.insurance__item.gyo-project .gyo-project__media img {
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.gyo-project__tag {
+  background: var(--gyo-green);
+  color: #fff;
+}
+
+/* --- Hızlı erişim kartları (Yatırımcı İlişkileri / Portföy) --------------- */
+@media (min-width: 992px) {
+  .quick-access__item {
+    height: 600px;
+  }
+}
+
+/* --- Görselli bantlar (.private-banking): ekran genişliği ------------------
+   ≥768: kutu konteynerden ekran kenarlarına taşar, köşe yuvarlatması kalkar;
+   metin konteyner hizasında kalır (iç pay = ekran − konteyner, yarısı). */
+@media (min-width: 768px) {
+  .private-banking {
+    margin-bottom: 80px;
+  }
+
+  .private-banking__content {
+    height: 560px;
+    margin: 0 calc(50% - 50vw);
+    padding: 0 calc(50vw - 50%);
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  /* görsel 3,4:1 (fotoğraf sağdaki %60'ta); dar ekranda fotoğraf metnin
+     altına girmesin diye kırpma soldan: 768–1920 arası metin koyu zeminde */
+  .private-banking__content picture img {
+    object-position: 35% 50%;
+  }
+
+  .private-banking__content__top {
+    max-width: 340px;
+  }
+
+  .gyo-tour .private-banking__content {
+    height: 600px;
+  }
+
+  .gyo-tour .private-banking__content picture img {
+    object-position: 50% 50%;
+  }
+
+  /* metnin altında koyu geçiş: konteyner solundan metin sonrasına kadar */
+  .gyo-tour .private-banking__content::after {
+    background: linear-gradient(90deg, rgba(0, 0, 0, .72) 0, rgba(0, 0, 0, .55) calc(50% - 160px), rgba(0, 0, 0, 0) calc(50% + 120px));
+  }
+
+  /* gri bölümden sonra gelen tam genişlik bant: boşluk gerekmez; proje
+     sayfasında son bant (güvence) footer'a kadar iner */
+  .gyo-section--gray + .private-banking {
+    padding-block-start: 0;
+    margin-bottom: 0;
+  }
+}
+
+/* --- İç sayfa bandı (sarı .subpage-banner) --------------------------------- */
+@media (min-width: 768px) {
+  .subpage-banner {
+    padding: 56px 0 64px;
+  }
+
+  .subpage-banner h1 {
+    font-size: 4.8rem;
+    line-height: 56px;
+  }
+}
+
+/* --- Footer: üstte ince Vakıf GYO yeşili çizgi ------------------------------ */
+.footer {
+  border-top: 4px solid var(--gyo-green);
+}
+
+/* Yatırımcı İlişkileri: son bant (Kurumsal Yönetim ve Sürdürülebilirlik)
+   footer'a kadar iner; yeşil zemin footer'ın yeşil çizgisiyle birleşir. */
+.gyo-ir-sustain {
+  padding-block-end: 0;
+}
+
+.gyo-ir-sustain .sustainable-banking {
+  margin-bottom: 0;
+}
+
+/* A2: ok düğmeleri daire yerine kartlarla aynı 8 px köşeli kare; ikisi tek bir
+   kontrol gibi bitişik (ortak kenar, uçlarda yuvarlak köşe) */
+.gyo-rail__nav { gap: 0; }
+.gyo-rail__btn { border-radius: 0; inline-size: 52px; }
+.gyo-rail__btn:first-child { border-radius: 8px 0 0 8px; }
+.gyo-rail__btn:last-child { border-radius: 0 8px 8px 0; margin-inline-start: -2px; }
+.gyo-rail__btn:hover:not(:disabled) { position: relative; z-index: 1; }
