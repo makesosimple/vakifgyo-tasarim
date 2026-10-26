@@ -45,8 +45,8 @@
 
   /* Banner: kaydırınca video çerçevesi tam ekrana büyür, başlık yukarı kayar */
   var frame = $('[data-c-hero-frame]'), title = $('[data-c-hero-title]');
-  /* Açılışta çerçeve ilk satırın hemen altından ekranın altına kadar uzanır;
-     başlığın kalan satırları videonun üstüne biner */
+  /* Açılışta çerçevenin üst kenarı "Geleceğin" satırının ortasından geçer,
+     oradan ekranın altına kadar uzanır */
   function heroTick() {
     if (!heroEl || !frame || !title) { return; }
     var r = heroEl.getBoundingClientRect();
@@ -55,7 +55,8 @@
     var e = 1 - Math.pow(1 - p, 3);
     var vw = document.documentElement.clientWidth, vh = window.innerHeight;
     var pad = clamp(vw * 0.044, 20, 72);   /* --pad */
-    var t0 = title.offsetTop + parseFloat(getComputedStyle(title).fontSize) * 0.92;
+    var mid = title.children[1];
+    var t0 = title.offsetTop + mid.offsetTop + mid.offsetHeight / 2;
     heroEl.style.setProperty('--w', lerp(vw - 2 * pad, vw, e) + 'px');
     heroEl.style.setProperty('--h', lerp(vh - t0 - 16, vh, e) + 'px');
     heroEl.style.setProperty('--top', lerp(t0, 0, e) + 'px');

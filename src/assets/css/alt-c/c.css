@@ -96,7 +96,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .c-hero__title {
   position: absolute; z-index: 3; left: 0; right: 0; top: clamp(96px, 12vh, 140px); padding: 0 var(--pad);
   text-align: center; color: var(--paper); text-transform: uppercase;
-  font: italic 800 clamp(48px, min(9.4vw, 15vh), 170px)/1 var(--brand); font-stretch: 85%; letter-spacing: -.03em;
+  font: italic 800 clamp(48px, min(9.4vw, 15vh), 170px)/1.1 var(--brand); font-stretch: 85%; letter-spacing: -.03em;
   text-shadow: 0 2px 30px rgba(0, 0, 0, .18);
   opacity: var(--t-op, 1); transform: translateY(var(--t-y, 0));
   pointer-events: none;
