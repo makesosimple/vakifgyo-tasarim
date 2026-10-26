@@ -45,8 +45,8 @@
 
   /* Banner: kaydırınca video çerçevesi tam ekrana büyür, başlık yukarı kayar */
   var frame = $('[data-c-hero-frame]'), title = $('[data-c-hero-title]');
-  /* Açılışta çerçeve başlığın hemen altından ekranın altına kadar uzanır (kenarlarda zemin payı) */
-  var heroP = 0;
+  /* Açılışta çerçeve ilk satırın hemen altından ekranın altına kadar uzanır;
+     başlığın kalan satırları videonun üstüne biner */
   function heroTick() {
     if (!heroEl || !frame || !title) { return; }
     var r = heroEl.getBoundingClientRect();
@@ -55,18 +55,14 @@
     var e = 1 - Math.pow(1 - p, 3);
     var vw = document.documentElement.clientWidth, vh = window.innerHeight;
     var pad = clamp(vw * 0.044, 20, 72);   /* --pad */
-    /* son satırın yarısı videonun üstüne biner */
-    var t0 = title.offsetTop + title.offsetHeight * 0.74;
-    heroEl.style.setProperty('--tt', title.offsetTop + 'px');
-    heroEl.style.setProperty('--vw', vw + 'px');
+    var t0 = title.offsetTop + parseFloat(getComputedStyle(title).fontSize) * 0.92;
     heroEl.style.setProperty('--w', lerp(vw - 2 * pad, vw, e) + 'px');
     heroEl.style.setProperty('--h', lerp(vh - t0 - 16, vh, e) + 'px');
     heroEl.style.setProperty('--top', lerp(t0, 0, e) + 'px');
     heroEl.style.setProperty('--rad', lerp(22, 0, e) + 'px');
-    heroEl.style.setProperty('--t-op', String(clamp(1 - p * 1.3, 0, 1)));
-    heroEl.style.setProperty('--t-y', (-p * 8) + 'vh');
+    heroEl.style.setProperty('--t-op', String(clamp(1 - p * 3, 0, 1)));
+    heroEl.style.setProperty('--t-y', (-p * 10) + 'vh');
     heroEl.style.setProperty('--d-op', String(clamp(1 - p * 4, 0, 1)));
-    heroP = p;
   }
 
   /* Temel amaç: kelimeler okundukça koyulaşır */
@@ -104,7 +100,6 @@
     if (head) {
       var past = window.scrollY > (heroEl ? heroEl.offsetHeight - 80 : 80);
       head.classList.toggle('is-solid', past);
-      head.classList.toggle('is-dark', past || heroP > 0.7);
     }
   }
   var ticking = false;
