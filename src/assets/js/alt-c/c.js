@@ -45,21 +45,26 @@
 
   /* Banner: kaydırınca video çerçevesi tam ekrana büyür, başlık yukarı kayar */
   var frame = $('[data-c-hero-frame]'), title = $('[data-c-hero-title]');
+  /* Açılışta çerçeve başlığın hemen altından ekranın altına kadar uzanır (kenarlarda zemin payı) */
+  var heroP = 0;
   function heroTick() {
-    if (!heroEl || calm) { return; }
+    if (!heroEl || !frame || !title) { return; }
     var r = heroEl.getBoundingClientRect();
     var span = heroEl.offsetHeight - window.innerHeight;
-    var p = clamp(-r.top / (span * 0.7), 0, 1);
+    var p = calm ? 0 : clamp(-r.top / (span * 0.7), 0, 1);
     var e = 1 - Math.pow(1 - p, 3);
-    var portrait = window.innerHeight > window.innerWidth;
-    var w0 = portrait ? 92 : 62, h0 = portrait ? 70 : 60, t0 = portrait ? 18 : 36;
-    heroEl.style.setProperty('--w', lerp(w0, 100, e) + 'vw');
-    heroEl.style.setProperty('--h', lerp(h0, 100, e) + 'vh');
-    heroEl.style.setProperty('--top', lerp(t0, 0, e) + 'vh');
+    var vw = document.documentElement.clientWidth, vh = window.innerHeight;
+    var pad = clamp(vw * 0.044, 20, 72);   /* --pad */
+    var gap = Math.max(16, Math.min(36, vh * 0.03));
+    var t0 = title.offsetTop + title.offsetHeight + gap;
+    heroEl.style.setProperty('--w', lerp(vw - 2 * pad, vw, e) + 'px');
+    heroEl.style.setProperty('--h', lerp(vh - t0 - 16, vh, e) + 'px');
+    heroEl.style.setProperty('--top', lerp(t0, 0, e) + 'px');
     heroEl.style.setProperty('--rad', lerp(22, 0, e) + 'px');
-    heroEl.style.setProperty('--t-op', String(clamp(1 - p * 1.7, 0, 1)));
-    heroEl.style.setProperty('--t-y', (-p * 22) + 'vh');
+    heroEl.style.setProperty('--t-op', String(clamp(1 - p * 1.3, 0, 1)));
+    heroEl.style.setProperty('--t-y', (-p * 8) + 'vh');
     heroEl.style.setProperty('--d-op', String(clamp(1 - p * 4, 0, 1)));
+    heroP = p;
   }
 
   /* Temel amaç: kelimeler okundukça koyulaşır */
@@ -93,8 +98,12 @@
   }
 
   function tick() {
-    if (head) { head.classList.toggle('is-solid', window.scrollY > (heroEl ? heroEl.offsetHeight - 80 : 80)); }
     heroTick(); wordsTick(); hsTick();
+    if (head) {
+      var past = window.scrollY > (heroEl ? heroEl.offsetHeight - 80 : 80);
+      head.classList.toggle('is-solid', past);
+      head.classList.toggle('is-dark', past || heroP > 0.7);
+    }
   }
   var ticking = false;
   window.addEventListener('scroll', function () {

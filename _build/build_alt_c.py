@@ -81,7 +81,7 @@ def header():
                    % (h, ''.join('<li><a href="%s">%s</a></li>' % (HREF.get(i, '#'), i) for i in items))
                    for h, items in MENU)
     return '''<header class="c-head" data-c-head>
-<a class="c-head__logo" href="index.html"><img src="%svakif-gyo-logo-ters.svg" alt="Vakıf GYO ana sayfa" width="150" height="26"></a>
+<a class="c-head__logo" href="index.html"><img class="c-head__logo-on-light" src="%s../gyo/vakif-gyo-logo.svg" alt="Vakıf GYO ana sayfa" width="150" height="26"><img class="c-head__logo-on-dark" src="%svakif-gyo-logo-ters.svg" alt="" width="150" height="26"></a>
 <nav class="c-head__nav" aria-label="Ana menü"><ul>%s</ul></nav>
 <a class="c-head__stock" href="#yatirimci"><span>VKGYO</span><b>%s ₺</b><i class="%s">%s %%%s</i></a>
 <button type="button" class="c-head__menu" aria-expanded="false" aria-controls="c-menu" data-c-menu><span class="sr-only">Menü</span><span class="c-burger" aria-hidden="true"></span></button>
@@ -92,14 +92,14 @@ def header():
 <div class="c-menu__cols">%s</div>
 <p class="c-menu__foot"><a href="#">EN</a><span>VakıfBank Finans Grubu İştirakidir.</span></p>
 </div>
-</div>''' % (IMG, links, tr_num(STOCK['price']), 'is-up' if up else 'is-down', '▲' if up else '▼',
+</div>''' % (IMG, IMG, links, tr_num(STOCK['price']), 'is-up' if up else 'is-down', '▲' if up else '▼',
              tr_num(abs(STOCK['chg'])), ico('search'), menu)
 
 
 def hero():
     return '''<section class="c-hero" aria-label="Vakıf GYO" data-c-hero>
 <div class="c-hero__stage">
-<h1 class="c-hero__title" data-c-hero-title><span>Geleneğin Gücü,</span> <span>Geleceğin</span> <span>İnşası</span></h1>
+<h1 class="c-hero__title" data-c-hero-title><span>Geleneğin Gücü,</span> <span>Geleceğin İnşası</span></h1>
 <div class="c-hero__frame" data-c-hero-frame>
 <video class="c-hero__video" autoplay muted loop playsinline preload="auto" poster="%sb-30yil-poster-1600x900.jpg" aria-hidden="true" data-c-video>
 <source src="%sb-30yil-608x1080.mp4" type="video/mp4" media="(orientation: portrait) and (max-width: 899px)">

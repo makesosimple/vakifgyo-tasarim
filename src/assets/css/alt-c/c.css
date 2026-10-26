@@ -46,6 +46,13 @@ button { font: inherit; color: inherit; cursor: pointer; }
 }
 .c-head.is-solid { background: var(--ink); height: 68px; }
 .c-head__logo img { width: 150px; height: auto; }
+/* Banner açılışında krem zemin üstünde koyu; video kaplayınca / geçilince açık */
+.c-head:not(.is-dark):not(.is-open) { color: var(--ink); }
+.c-head:not(.is-dark):not(.is-open) .c-head__stock { background: rgba(23, 22, 28, .07); }
+.c-head:not(.is-dark):not(.is-open) .is-down { color: var(--red); }
+.c-head:not(.is-dark):not(.is-open) .is-up { color: var(--green); }
+.c-head__logo-on-dark, .c-head.is-dark .c-head__logo-on-light, .c-head.is-open .c-head__logo-on-light { display: none; }
+.c-head.is-dark .c-head__logo-on-dark, .c-head.is-open .c-head__logo-on-dark { display: block; }
 .c-head__nav { margin-left: auto; }
 .c-head__nav ul { display: flex; gap: clamp(16px, 2vw, 32px); }
 .c-head__nav a { font-weight: 500; font-size: 15px; text-decoration: none; opacity: .88; }
@@ -85,39 +92,40 @@ button { font: inherit; color: inherit; cursor: pointer; }
 }
 
 /* --- Banner: tipografi videonun üstünde (soeiendom gibi) ----------------- */
-.c-hero { position: relative; height: 230vh; background: var(--ink); }
+.c-hero { position: relative; height: 230vh; background: var(--cream); }
 .c-hero__stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
+/* Başlık videonun üstünde ayrı durur; kaydırınca büyüyen video onu örter */
 .c-hero__title {
-  position: absolute; z-index: 3; left: 0; right: 0; top: calc(var(--top, 30vh) - .9em); padding: 0 var(--pad);
-  text-align: center; color: var(--paper); text-transform: uppercase;
-  font: italic 800 clamp(48px, 9.4vw, 170px)/.95 var(--brand); font-stretch: 85%; letter-spacing: -.035em;
+  position: absolute; z-index: 1; left: 0; right: 0; top: clamp(100px, 13vh, 148px); padding: 0 var(--pad);
+  color: var(--ink); font: italic 700 clamp(44px, min(7.6vw, 13vh), 148px)/1.02 var(--brand); font-stretch: 82%; letter-spacing: -.03em;
   opacity: var(--t-op, 1); transform: translateY(var(--t-y, 0));
   pointer-events: none;
 }
 .c-hero__title span { display: block; }
+.c-hero__title span + span { padding-left: .9em; }
 .c-hero__frame {
-  position: absolute; z-index: 2; left: 50%; top: var(--top, 30vh);
-  width: var(--w, 64vw); height: var(--h, 62vh); transform: translateX(-50%);
+  position: absolute; z-index: 2; left: 50%; top: var(--top, 50vh);
+  width: var(--w, 100vw); height: var(--h, 50vh); transform: translateX(-50%);
   border-radius: var(--rad, 22px); overflow: hidden; background: #000;
 }
 .c-hero__video { width: 100%; height: 100%; object-fit: cover; }
 .c-hero__frame::after { content: ''; position: absolute; inset: 0; background: linear-gradient(rgba(0,0,0,.18), rgba(0,0,0,0) 30%, rgba(0,0,0,.25)); }
 .c-hero__pause {
-  position: absolute; z-index: 4; right: var(--pad); bottom: 32px; width: 48px; height: 48px; border-radius: 50%;
+  position: absolute; z-index: 4; right: calc(var(--pad) + 20px); bottom: 40px; width: 48px; height: 48px; border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, .5); background: rgba(0, 0, 0, .2); color: #fff; display: grid; place-items: center;
 }
 .c-hero__pause .b-ico { width: 18px; height: 18px; }
 .c-hero__pause .c-ico--play, .c-hero__pause.is-paused .c-ico--pause { display: none; }
 .c-hero__pause.is-paused .c-ico--play { display: block; }
 .c-hero__down {
-  position: absolute; z-index: 4; left: 50%; bottom: 28px; width: 48px; margin-left: -24px; color: #fff;
+  position: absolute; z-index: 4; left: 50%; bottom: 36px; width: 48px; margin-left: -24px; color: #fff;
   opacity: var(--d-op, 1); transition: opacity .2s;
 }
 .c-hero__down svg { width: 48px; height: 64px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; animation: c-bob 2.4s ease-in-out infinite; }
 @keyframes c-bob { 0%, 100% { transform: translateY(-6px); } 50% { transform: translateY(6px); } }
 @media (max-width: 899px) and (orientation: portrait) {
-  .c-hero__title { font-size: clamp(44px, 13vw, 96px); }
-  .c-hero { --w: 92vw; --h: 70vh; --top: 18vh; }
+  .c-hero__title { top: 92px; font-size: clamp(40px, 11.6vw, 88px); }
+  .c-hero__title span + span { padding-left: 0; }
 }
 
 /* --- Temel amaç: kelimeler kaydırdıkça koyulaşır ------------------------- */
