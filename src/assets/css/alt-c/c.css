@@ -289,3 +289,19 @@ a.c-pill:hover { background: var(--yellow); color: var(--ink); }
   .c-statement__text span { --o: 1 !important; }
   .c-ir__line { transition: none; stroke-dashoffset: 0; }
 }
+
+/* --- Banner başlığı: yazı karakteri denemeleri (?t=1/2/3) ------------------ */
+[data-t] .c-hero__title { font-style: normal; font-stretch: 100%; }
+[data-t] .c-hero__title span + span { padding-left: 0; }
+/* 1 — Barlow: menüyle aynı aile, dik ve sıkı */
+[data-t="1"] .c-hero__title { font: 600 clamp(46px, min(8vw, 14vh), 156px)/.98 var(--sans); letter-spacing: -.035em; }
+/* 2 — Inter Tight: İskandinav çizgisinde sade grotesk */
+[data-t="2"] .c-hero__title { font: 500 clamp(44px, min(7.4vw, 13vh), 144px)/.98 'Inter Tight', var(--sans); letter-spacing: -.035em; }
+/* 3 — Instrument Serif: editoryal, ikinci satır italik */
+[data-t="3"] .c-hero__title { font: 400 clamp(52px, min(9vw, 15.5vh), 176px)/.95 'Instrument Serif', Georgia, serif; letter-spacing: -.02em; }
+[data-t="3"] .c-hero__title span + span { font-style: italic; }
+@media (max-width: 899px) and (orientation: portrait) {
+  [data-t="1"] .c-hero__title { font-size: clamp(40px, 12.4vw, 92px); }
+  [data-t="2"] .c-hero__title { font-size: clamp(38px, 11.4vw, 88px); }
+  [data-t="3"] .c-hero__title { font-size: clamp(46px, 14vw, 104px); }
+}

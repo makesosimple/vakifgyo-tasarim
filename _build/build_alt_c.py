@@ -350,7 +350,8 @@ def page():
 <meta name="description" content="Vakıf GYO — Geleneğin Gücü, Geleceğin İnşası. Kurumsal · Portföy · Yatırımcı İlişkileri · Güncel · Sürdürülebilirlik · Bize Ulaşın">
 <link rel="icon" href="../assets/img/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Open+Sans:ital,wdth,wght@1,75..100,600..800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Open+Sans:ital,wdth,wght@1,75..100,600..800&family=Inter+Tight:wght@500;600&family=Instrument+Serif:ital@0;1&display=swap">
+<script>/* banner başlığı yazı karakteri denemesi: ?t=1 | 2 | 3 */document.documentElement.setAttribute('data-t', (/[?&]t=([123])/.exec(location.search) || [0, '1'])[1]);</script>
 <link rel="stylesheet" href="../assets/css/alt-c/c.css?v=%s">
 </head>
 <body class="c">

@@ -112,6 +112,7 @@
   window.addEventListener('resize', function () { hsLayout(); tick(); });
   window.addEventListener('load', function () { hsLayout(); tick(); });
   hsLayout(); tick();
+  if (document.fonts) { document.fonts.ready.then(function () { hsLayout(); tick(); }); }
 
   /* Görünür olunca beliren öğeler, sayaçlar, çizgi grafik, harita */
   function fmt(v, dec) {
