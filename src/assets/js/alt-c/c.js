@@ -55,8 +55,10 @@
     var e = 1 - Math.pow(1 - p, 3);
     var vw = document.documentElement.clientWidth, vh = window.innerHeight;
     var pad = clamp(vw * 0.044, 20, 72);   /* --pad */
-    var gap = Math.max(16, Math.min(36, vh * 0.03));
-    var t0 = title.offsetTop + title.offsetHeight + gap;
+    /* son satırın yarısı videonun üstüne biner */
+    var t0 = title.offsetTop + title.offsetHeight * 0.74;
+    heroEl.style.setProperty('--tt', title.offsetTop + 'px');
+    heroEl.style.setProperty('--vw', vw + 'px');
     heroEl.style.setProperty('--w', lerp(vw - 2 * pad, vw, e) + 'px');
     heroEl.style.setProperty('--h', lerp(vh - t0 - 16, vh, e) + 'px');
     heroEl.style.setProperty('--top', lerp(t0, 0, e) + 'px');

@@ -105,6 +105,7 @@ def hero():
 <source src="%sb-30yil-608x1080.mp4" type="video/mp4" media="(orientation: portrait) and (max-width: 899px)">
 <source src="%sb-30yil-1600x900.mp4" type="video/mp4">
 </video>
+<p class="c-hero__title c-hero__title--on" aria-hidden="true"><span>Geleneğin Gücü,</span> <span>Geleceğin İnşası</span></p>
 </div>
 <button type="button" class="c-hero__pause" aria-pressed="false" data-c-video-toggle><span class="sr-only" data-c-video-label>Videoyu durdur</span>%s%s</button>
 <a class="c-hero__down" href="#biz" data-c-down><span class="sr-only">Aşağı kaydır</span><svg viewBox="0 0 48 64" aria-hidden="true"><path d="M24 4v54M6 40l18 18 18-18"/></svg></a>
