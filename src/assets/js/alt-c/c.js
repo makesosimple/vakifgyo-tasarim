@@ -52,7 +52,7 @@
     var p = clamp(-r.top / (span * 0.7), 0, 1);
     var e = 1 - Math.pow(1 - p, 3);
     var portrait = window.innerHeight > window.innerWidth;
-    var w0 = portrait ? 86 : 62, h0 = portrait ? 46 : 60, t0 = portrait ? 44 : 36;
+    var w0 = portrait ? 92 : 62, h0 = portrait ? 70 : 60, t0 = portrait ? 18 : 36;
     heroEl.style.setProperty('--w', lerp(w0, 100, e) + 'vw');
     heroEl.style.setProperty('--h', lerp(h0, 100, e) + 'vh');
     heroEl.style.setProperty('--top', lerp(t0, 0, e) + 'vh');

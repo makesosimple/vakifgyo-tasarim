@@ -90,7 +90,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .c-hero__title {
   position: absolute; z-index: 3; left: 0; right: 0; top: calc(var(--top, 30vh) - .9em); padding: 0 var(--pad);
   text-align: center; color: var(--paper); text-transform: uppercase;
-  font: italic 800 clamp(48px, 9.4vw, 170px)/.86 var(--brand); font-stretch: 85%; letter-spacing: -.035em;
+  font: italic 800 clamp(48px, 9.4vw, 170px)/.95 var(--brand); font-stretch: 85%; letter-spacing: -.035em;
   opacity: var(--t-op, 1); transform: translateY(var(--t-y, 0));
   pointer-events: none;
 }
@@ -117,6 +117,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 @keyframes c-bob { 0%, 100% { transform: translateY(-6px); } 50% { transform: translateY(6px); } }
 @media (max-width: 899px) and (orientation: portrait) {
   .c-hero__title { font-size: clamp(44px, 13vw, 96px); }
+  .c-hero { --w: 92vw; --h: 70vh; --top: 18vh; }
 }
 
 /* --- Temel amaç: kelimeler kaydırdıkça koyulaşır ------------------------- */
